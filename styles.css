@@ -1,0 +1,228 @@
+#juego {
+    position: relative;
+    width: 500px; 
+    height: 500px; 
+    border: 2px solid black; 
+    overflow: hidden;
+}
+
+/*player*/
+#player {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+#tanque {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    background-image: url(./models/PNG/Hulls_Color_D/Hull_04.png);
+    background-repeat: no-repeat;
+    z-index: 5;
+}
+#oruga-derecha {
+    position: absolute;
+    top: 50%;
+    right: 20%; 
+    transform: translateY(-50%);
+    width: 15px;
+    height: 50px;
+    background-size: cover;
+    background-image: url(./models/PNG/Tracks/Track_1_A.png);
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+#oruga-izquierda {
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 50px;
+    background-size: cover;
+    background-image: url(./models/PNG/Tracks/Track_1_A.png);
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+#base-cannon{position: absolute;
+    top: 50%;
+    left: 30%;
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    background-image: url(./models/PNG/Weapon_Color_D/Gun_01_B.png);
+    background-repeat: no-repeat;
+    z-index: 10;
+}
+
+#cannon {
+    position: absolute;
+    top: 18%;
+    left: 38%;
+    width: 25px;
+    height: 40px;
+    background-size: cover;
+    background-image: url(./models/PNG/Weapon_Color_D/Gun_01_A.png);
+    background-repeat: no-repeat;
+    z-index: 10;
+}
+/*navbar*/
+.navbar {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+}
+
+.navbar-nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-item {
+    margin-right: 20px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+/* footer */
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 1px 0;
+    text-align: center;
+    margin-top: 50px;
+}
+
+
+/**/
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.container > div {
+    flex: 1;
+    margin-right: 20px;
+}
+
+main{
+    min-width: 80%;
+    min-height: 80%;
+}
+ /*Scores*/
+#scoretable {
+    flex: 1; 
+    max-width: 300px; 
+    overflow: auto; 
+    margin-right: 20px; 
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
+
+/*enemy*/
+#enemy {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+#enemy-block {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    background-image: url(./models/PNG/Hulls_Color_D/Hull_04.png);
+    background-repeat: no-repeat;
+    z-index: 5;
+}
+#enemy-oruga-derecha {
+    position: absolute;
+    top: 50%;
+    right: 20%; 
+    transform: translateY(-50%);
+    width: 15px;
+    height: 50px;
+    background-size: cover;
+    background-image: url(./models/PNG/Tracks/Track_1_A.png);
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+#enemy-oruga-izquierda {
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 50px;
+    background-size: cover;
+    background-image: url(./models/PNG/Tracks/Track_1_A.png);
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+#enemy-base-cannon{position: absolute;
+    top: 50%;
+    left: 30%;
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    background-image: url(./models/PNG/Weapon_Color_D/Gun_01_B.png);
+    background-repeat: no-repeat;
+    z-index: 10;
+}
+
+#enemy-cannon {
+    position: absolute;
+    top: 18%;
+    left: 38%;
+    width: 25px;
+    height: 40px;
+    background-size: cover;
+    background-image: url(./models/PNG/Weapon_Color_D/Gun_01_A.png);
+    background-repeat: no-repeat;
+    z-index: 10;
+}
+
+
+/*Firemode*/
+.disparo{
+    background-image: url( './models/PNG/Effects/Plasma.png');
+}
