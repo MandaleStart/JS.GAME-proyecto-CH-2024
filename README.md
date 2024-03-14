@@ -34,4 +34,4 @@ Clona este repositorio en tu máquina local utilizando el siguiente comando:
 # Licencia
 Este proyecto está bajo la Licencia MIT. Para más detalles, consulta el archivo LICENSE en el repositorio.
 
-¡Esperamos que disfrutes jugando  tanto como nosotros disfrutamos creándolo! Si tienes alguna pregunta o sugerencia, no dudes en ponerte en contacto. ¡Que te diviertas!
+¡Espero que disfrutes jugando  tanto como yo disfruto creándolo! Si tienes alguna pregunta o sugerencia, no dudes en ponerte en contacto. ¡Que te diviertas!

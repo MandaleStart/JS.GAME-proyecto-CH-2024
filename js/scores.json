@@ -1,0 +1,79 @@
+{
+    "usuarios": [
+      {
+        "nombre": "GamerX23",
+        "puntaje": 1200,
+        "tiempo": "1:30:00"
+      },
+      {
+        "nombre": "ShadowNinja99",
+        "puntaje": 950,
+        "tiempo": "1:20:45"
+      },
+      {
+        "nombre": "CyberWolf",
+        "puntaje": 1800,
+        "tiempo": "2:10:15"
+      },
+      {
+        "nombre": "TechWarrior",
+        "puntaje": 600,
+        "tiempo": "0:45:30"
+      },
+      {
+        "nombre": "PixelMaster",
+        "puntaje": 2100,
+        "tiempo": "2:30:20"
+      },
+      {
+        "nombre": "EpicGamer22",
+        "puntaje": 1450,
+        "tiempo": "1:55:10"
+      },
+      {
+        "nombre": "SpeedyGamer",
+        "puntaje": 800,
+        "tiempo": "1:10:25"
+      },
+      {
+        "nombre": "DragonSlayer",
+        "puntaje": 1750,
+        "tiempo": "2:05:30"
+      },
+      {
+        "nombre": "TechNerd",
+        "puntaje": 1350,
+        "tiempo": "1:40:15"
+      },
+      {
+        "nombre": "GalacticWarrior",
+        "puntaje": 1000,
+        "tiempo": "1:25:40"
+      },
+      {
+        "nombre": "MysticGamer",
+        "puntaje": 1550,
+        "tiempo": "2:00:50"
+      },
+      {
+        "nombre": "VortexGamer",
+        "puntaje": 850,
+        "tiempo": "1:15:20"
+      },
+      {
+        "nombre": "JungleGamer",
+        "puntaje": 2000,
+        "tiempo": "2:20:35"
+      },
+      {
+        "nombre": "NebulaMaster",
+        "puntaje": 1100,
+        "tiempo": "1:30:45"
+      },
+      {
+        "nombre": "GalacticRanger",
+        "puntaje": 1650,
+        "tiempo": "2:05:10"
+      }
+    ]
+  }

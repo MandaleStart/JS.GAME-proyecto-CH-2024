@@ -1,0 +1,311 @@
+
+/* Normalización CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+  }
+
+  html {
+    font-size: 16px; 
+  }
+  
+  body {
+    font-size: 1rem;
+  }
+  
+  img {
+    border: 0;
+  }
+  
+  ul, ol {
+    list-style: none;
+  }
+  
+  body, p, h1, h2, h3, h4, h5, h6 {
+    line-height: 1.5;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+/* [ Estilo de pagina ] */
+.navbar {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+}
+
+.navbar-nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-item {
+    margin-right: 20px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+}
+/* [ canvas para juego] */
+
+#juego {
+    margin: 2%;
+    position: relative;
+    width: 1500px; 
+    height: 500px; 
+    border: 2px solid black; 
+    overflow: hidden;
+}
+/* [Guia de teclas]*/
+.guia {
+  display: flex;
+  justify-content: space-around;
+}
+
+.jugador {
+  margin: 20px;
+  padding: 10px;
+  border: 2px solid #333;
+  border-radius: 5px;
+}
+
+.titulo {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.tecla {
+  margin: 5px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background-color: #f2f2f2;
+  display: inline-block;
+}
+
+.tecla:hover {
+  background-color: #e0e0e0;
+}
+/* [ MAPA - experimental] */
+.grass {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background: url('https://www.transparenttextures.com/patterns/grass.png');
+    animation: sway 10s infinite alternate;
+}
+
+.grass:before, .grass:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: -50%;
+    width: 50%;
+    height: 100%;
+    background: inherit;
+}
+
+.grass:after {
+    left: 100%;
+}
+
+@keyframes sway {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(3deg);
+    }
+}
+
+/* [ player1 ]*/
+#player1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+}
+#tanque {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  background-image: url(../models/PNG/Hulls_Color_D/Hull_04.png);
+  background-repeat: no-repeat;
+  z-index: 5;
+}
+#oruga-derecha {
+  position: absolute;
+  top: 50%;
+  right: 20%; 
+  transform: translateY(-50%);
+  width: 15px;
+  height: 50px;
+  background-size: cover;
+  background-image: url(../models/PNG/Tracks/Track_1_A.png);
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+#oruga-izquierda {
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  transform: translateY(-50%);
+  width: 15px;
+  height: 50px;
+  background-size: cover;
+  background-image: url(../models/PNG/Tracks/Track_1_A.png);
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+#base-cannon{position: absolute;
+  top: 50%;
+  left: 30%;
+  width: 40px;
+  height: 40px;
+  background-size: cover;
+  background-image: url(../models/PNG/Weapon_Color_D/Gun_01_B.png);
+  background-repeat: no-repeat;
+  z-index: 10;
+}
+
+#cannon {
+  position: absolute;
+  top: 18%;
+  left: 38%;
+  width: 25px;
+  height: 40px;
+  background-size: cover;
+  background-image: url(../models/PNG/Weapon_Color_D/Gun_01_A.png);
+  background-repeat: no-repeat;
+  z-index: 10;
+}
+#cannon-fire{
+  top: 18%;
+  left: 38%;
+  width: 25px;
+  height: 40px;
+  background-size: cover;
+  background-image: url(../models/PNG/Effects/Sprites/Sprite_Fire_Shots_Shot_A_000.png);
+  background-repeat: no-repeat;
+  z-index: 10;
+
+}
+
+
+
+/* [ player2 ]*/
+#player2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+}
+#tanque {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  background-image: url(../models/PNG/Hulls_Color_D/Hull_04.png);
+  background-repeat: no-repeat;
+  z-index: 5;
+}
+#oruga-derecha {
+  position: absolute;
+  top: 50%;
+  right: 20%; 
+  transform: translateY(-50%);
+  width: 15px;
+  height: 50px;
+  background-size: cover;
+  background-image: url(../models/PNG/Tracks/Track_1_A.png);
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+#oruga-izquierda {
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  transform: translateY(-50%);
+  width: 15px;
+  height: 50px;
+  background-size: cover;
+  background-image: url(../models/PNG/Tracks/Track_1_A.png);
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+#base-cannon{position: absolute;
+  top: 50%;
+  left: 30%;
+  width: 40px;
+  height: 40px;
+  background-size: cover;
+  background-image: url(../models/PNG/Weapon_Color_D/Gun_01_B.png);
+  background-repeat: no-repeat;
+  z-index: 10;
+}
+
+#cannon {
+  position: absolute;
+  top: 18%;
+  left: 38%;
+  width: 25px;
+  height: 40px;
+  background-size: cover;
+  background-image: url(../models/PNG/Weapon_Color_D/Gun_01_A.png);
+  background-repeat: no-repeat;
+  z-index: 10;
+}
+#cannon-fire{
+  top: 18%;
+  left: 38%;
+  width: 25px;
+  height: 40px;
+  background-size: cover;
+  background-image: url(../models/PNG/Effects/Sprites/Sprite_Fire_Shots_Shot_A_000.png);
+  background-repeat: no-repeat;
+  z-index: 10;
+
+}
