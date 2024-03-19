@@ -152,6 +152,32 @@
     }
 }
 
+/* [ HUD - experimental] */
+
+.hud {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+.salud, .tiempo, .puntaje {
+  margin-bottom: 10px;
+}
+
+.salud progress {
+  width: 100px;
+}
+
+.tiempo, .puntaje {
+  font-size: 16px;
+}
+
+
 /* [ player1 ]*/
 #player1 {
   position: absolute;
