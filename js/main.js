@@ -1,13 +1,3 @@
-
-let usernamePlayer1 = prompt('Inserta el nombre de Jugador 1:');
-
-let tieneCompanero = confirm('¿Hay un compañero de juego?');
-
-if (tieneCompanero) {
-    let usernamePlayer2 = prompt('Inserta el nombre de Jugador 2:');
-} else {
-}
-
 /* usernick de player 1 y 2 seran pedidos dentro del juego despues  como usuarios temporales
     Seccion de login permitira  crear usuarios permanentes para guardar los puntajes en una BD
  */
@@ -38,18 +28,17 @@ function loadGame() {
 };
 
 loadGame();
-// Posición inicial del tanque 1
+// Posición inicial del tanque 1 y 2
 let posXPlayer1 = 0;
 let posYPlayer1 = 0;
 
-// Posición inicial del tanque 2
 let posXPlayer2 = 100;
 let posYPlayer2 = 50;
 
 // pasos al mover
 const step = 10;
 
-// Función para verificar colisión entre tanques
+// Función para verificar colisión entre tanques 
 function verificarColision(x1, y1, x2, y2) {
     return Math.abs(x1 - x2) < 30 && Math.abs(y1 - y2) < 30;
 }
@@ -63,7 +52,7 @@ function moverTanque(direction, player, posX, posY) {
                 if (posY - step >= 0) {
                     posY -= step;
                     foc = "0deg";
-                    console.log('Player se mueve hacia arriba');
+                    console.log(`${player}Player se mueve hacia arriba`);
                 } else {
                     console.log("No se puede mover hacia arriba");
                 }
@@ -72,7 +61,7 @@ function moverTanque(direction, player, posX, posY) {
                 if (posY + step <= window.innerHeight - player.clientHeight) {
                     posY += step;
                     foc = "180deg";
-                    console.log('Player se mueve hacia abajo');
+                    console.log(`${player} se mueve hacia abajo`);
                 } else {
                     console.log("No se puede mover hacia abajo");
                 }
@@ -81,7 +70,7 @@ function moverTanque(direction, player, posX, posY) {
                 if (posX - step >= 0) {
                     posX -= step;
                     foc = "-90deg";
-                    console.log('Player se mueve hacia la izquierda');
+                    console.log(`${player} se mueve hacia la izquierda`);
                 } else {
                     console.log("No se puede mover hacia la izquierda");
                 }
@@ -90,7 +79,7 @@ function moverTanque(direction, player, posX, posY) {
                 if (posX + step <= window.innerWidth - player.clientWidth) {
                     posX += step;
                     foc = "90deg";
-                    console.log('Player se mueve hacia la derecha');
+                    console.log(`${player} se mueve hacia la derecha`);
                 } else {
                     console.log("No se puede mover hacia la derecha");
                 }
