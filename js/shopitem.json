@@ -1,0 +1,185 @@
+{
+    "mejoras": {
+        "canones": [
+            {
+                "id": "C-01",
+                "nombre": "Cañón básico",
+                "descripcion": "Cañón estándar con daño moderado.",
+                "precio": 0,
+                "potencia": 1,
+                "velocidad_disparo": 1,
+                "img": "../models/PNG/CANNONS/C-01.png"
+            },
+            {
+                "id": "C-02",
+                "nombre": "Cañón rápido",
+                "descripcion": "Cañón que dispara más rápido pero con menos daño.",
+                "precio": 150,
+                "potencia": 0.8,
+                "velocidad_disparo": 1.5,
+                "img": "../models/PNG/CANNONS/C-02.png"
+            },
+            {
+                "id": "C-03",
+                "nombre": "Cañón potente",
+                "descripcion": "Cañón con alto poder de destrucción pero menor velocidad de disparo.",
+                "precio": 200,
+                "potencia": 1.5,
+                "velocidad_disparo": 0.8,
+                "img": "../models/PNG/CANNONS/C-03.png"
+            }
+        ],
+        "orugas": [
+            {
+                "id": "O-01",
+                "nombre": "Orugas estándar",
+                "descripcion": "Orugas normales con velocidad moderada.",
+                "precio": 50,
+                "velocidad": 1,
+                "resistencia": 1,
+                "img": "../models/PNG/ORUGAS/O-01.png"
+            },
+            {
+                "id": "O-02",
+                "nombre": "Orugas rápidas",
+                "descripcion": "Orugas que proporcionan mayor velocidad pero son menos resistentes.",
+                "precio": 100,
+                "velocidad": 1.5,
+                "resistencia": 1,
+                "img": "../models/PNG/ORUGAS/O-02.png"
+            },
+            {
+                "id": "O-03",
+                "nombre": "Orugas blindadas",
+                "descripcion": "Orugas más resistentes pero que reducen la velocidad.",
+                "precio": 150,
+                "velocidad": 0.8,
+                "resistencia": 1,
+                "img": "../models/PNG/ORUGAS/O-03.png"
+            }
+        ],
+        "bloque_principal": [
+            {
+                "id": "B-01",
+                "nombre": "Bloque estándar",
+                "descripcion": "El bloque principal estándar, ofrece protección básica.",
+                "precio": 50,
+                "resistencia": 1,
+                "img": "../models/PNG/BLOQUE/B-01.png"
+            },
+            {
+                "id": "B-02",
+                "nombre": "Bloque reforzado",
+                "descripcion": "Bloque que ofrece mayor resistencia pero es más pesado.",
+                "precio": 100,
+                "resistencia": 1.5,
+                "img": "../models/PNG/BLOQUE/B-02.png"
+            },
+            {
+                "id": "B-03",
+                "nombre": "Bloque ligero",
+                "descripcion": "Bloque liviano que reduce la resistencia pero mejora la velocidad.",
+                "precio": 75,
+                "resistencia": 0.8,
+                "img": "../models/PNG/BLOQUE/B-03.png"
+            }
+        ],
+        "montaje_canon": [
+            {
+                "id": "M-01",
+                "nombre": "Montaje estándar",
+                "descripcion": "Montaje básico para el cañón.",
+                "precio": 50,
+                "precision": 1,
+                "img": "../models/PNG/MONTAJE/M-01.png"
+            },
+            {
+                "id": "M-02",
+                "nombre": "Montaje de potencia",
+                "descripcion": "Montaje que mejora la potencia del cañón.",
+                "precio": 100,
+                "velocidad_disparo": 1.5,
+                "img": "../models/PNG/MONTAJE/M-02.png"
+            },
+            {
+                "id": "M-03",
+                "nombre": "Montaje rápido",
+                "descripcion": "Montaje que permite disparar el cañón más rápidamente.",
+                "precio": 75,
+                "velocidad_disparo": 1.5,
+                "img": "../models/PNG/MONTAJE/M-03.png"
+            }
+        ]
+    },
+    "consumibles": [
+        {
+            "id": "CON-01",
+            "nombre": "Refuerzo de velocidad",
+            "descripcion": "Aumenta temporalmente la velocidad del tanque.",
+            "precio": 50,
+            "duracion_segundos": 10,
+            "boost_velocidad": 1.5,
+            "img": "../models/PNG/CONS/SPD-01.png"
+        },
+        {
+            "id": "CON-02",
+            "nombre": "Escudo protector",
+            "descripcion": "Proporciona temporalmente una capa protectora que reduce el daño recibido.",
+            "precio": 75,
+            "duracion_segundos": 15,
+            "reduccion_dano": 0.5,
+            "img": "../models/PNG/CONS/SH-02.png"
+        },
+        {
+            "id": "CON-03",
+            "nombre": "Recarga rápida",
+            "descripcion": "Acelera temporalmente la velocidad de recarga de tu cañón.",
+            "precio": 100,
+            "duracion_segundos": 8,
+            "boost_recarga": 0.5,
+            "img": "../models/PNG/CONS/RF-03.png"
+        },
+        {
+            "id": "CON-04",
+            "nombre": "Disparo Cargado",
+            "descripcion": "Aumenta temporalmente el daño de tus disparos, causando devastación extra.",
+            "precio": 150,
+            "duracion_segundos": 12,
+            "boost_dano": 1.2,
+            "img": "../models/PNG/CONS/GP-04.png"
+        },
+        {
+            "id": "CON-05",
+            "nombre": "Misil HELLSTORM-1",
+            "descripcion": "Misil balistico que genera daño en area , Requiere un montaje con anclaje de misiles",
+            "precio": 150,
+            "cantidad": 12,
+            "img": "../models/PNG/CONS/HS-01.png"
+        },
+        {
+            "id": "CON-06",
+            "nombre": "Misil RAPTOR",
+            "descripcion": "Misil balistico con buscador de calor que genera daño en area , Requiere un montaje con anclaje de misiles.",
+            "precio": 150,
+            "cantidad": 12,
+            "img": "../models/PNG/CONS/RAP-01.png"
+        },
+        {
+            "id": "CON-07",
+            "nombre": "Mina Terrestre Desplazante",
+            "descripcion": "Mina terrestre que se desplaza por el mapa, no distingue jugadores de enemigos una vez se activa",
+            "precio": 150,
+            "cantidad": 12,
+            "img": "../models/PNG/CONS/MTD-02.png"
+        }        ,
+        {
+            "id": "CON-08",
+            "nombre": "Mina terrestre basica",
+            "descripcion": "Mina terrestre basica, no distingue jugadores de enemigos una vez se activa",
+            "precio": 150,
+            "cantidad": 12,
+            "img": "../models/PNG/CONS/MTB-01.png"
+        }
+
+    ]
+}
