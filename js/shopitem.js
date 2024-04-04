@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 console.error("Error al cargar los datos de la tienda:", error);
             });
     }
+
     function crearItem(item) {
         const divItem = document.createElement("div");
         divItem.classList.add("item");
@@ -80,10 +81,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Función para simular la compra de un elemento
     function comprarItem(item) {
-        
+        alert("Compraste: " + item.nombre);
         console.log("Compraste:", item.nombre);
+
+        
     }
 
     // Cargar los datos de la tienda
     cargarDatosTienda();
 });
+
+
+// si la mejora fue comprada se debera deshabilitar el boton para evitar multiples compras
