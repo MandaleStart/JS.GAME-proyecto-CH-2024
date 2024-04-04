@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoCombatName</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/game.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="../index.html" class="navbar-brand">NoCombatName</a>
+        <ul class="navbar-nav">
+            <li class="nav-item"><a href="/views/game.html" class="nav-link">Jugar</a></li>
+            <li class="nav-item"><a href="/views/shop.html" class="nav-link">Tienda</a></li>
+            <li class="nav-item"><a href="/views/reg-log.html" class="nav-link" id="user-control">Registro/Login</a></li>
+            <li class="nav-item"> <select id="languaje">ESP</select></li>
+        </ul>
+
+
+    </nav>
+    <main>
+        <div class="" id="scoretable">
+        </div>
+        <div class="container">
+            <div class="" id="juego" >
+                <div class="hud">
+                    <div class="salud">
+                      <span>Salud:</span>
+                      <progress value="100" max="100"></progress>
+                    </div>
+                    <div class="tiempo">
+                      <span>Tiempo:</span>
+                      <span id="contador-tiempo">00:00</span>
+                    </div>
+                    <div class="puntaje">
+                      <span>Puntaje:</span>
+                      <span id="contador-puntaje">0</span>
+                    </div>
+                  </div>
+                  
+            </div>
+
+        </div>
+        <div class="guia">
+            <div class="jugador" id="jugador1">
+                <div class="titulo">Player 1</div>
+                <div class="tecla">Arriba</div>
+                <div class="tecla">Abajo</div>
+                <div class="tecla">Izquierda</div>
+                <div class="tecla">Derecha</div>
+                <div class="tecla">.</div>
+                
+            </div>
+            <div class="jugador" id="jugador2">
+                <div class="titulo">Player 2</div>
+                <div class="tecla">W</div>
+                <div class="tecla">A</div>
+                <div class="tecla">S</div>
+                <div class="tecla">D</div>
+                <div class="tecla">Espacio</div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div>
+            <h1>Link Utiles</h1>
+            <div>Foro</div>
+            <div>Soporte</div>
+            <div>Tienda</div>
+            <div>Noticias</div>
+        </div>
+        <div> © 2024 Mandalestart.com - Todos los derechos reservados </div>
+    </footer>
+    <script src="../js/main.js" ></script>
+    
+</body>
+
+</html>
