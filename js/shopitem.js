@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Constante para la dirección del archivo JSON
-    const URL_DATOS_TIENDA = "../js/shopitem.json";
+    const URL_DATOS_TIENDA = "../js/JSON/shopitem.json";
 
     console.log("URL del archivo de datos:", URL_DATOS_TIENDA);
     
@@ -23,17 +23,17 @@ document.addEventListener("DOMContentLoaded", function() {
     
                 // Mostrar las mejoras
                 console.log("Mostrando mejoras...");
-                for (const categoria in data.mejoras) {
-                    data.mejoras[categoria].forEach(mejora => {
-                        const item = crearItem(mejora);
+                for (const categoria in data.upgrades) {
+                    data.upgrades[categoria].forEach(upgrade => {
+                        const item = crearItem(upgrade);
                         listaMejoras.appendChild(item);
                     });
                 }
     
                 // Mostrar los consumibles
                 console.log("Mostrando consumibles...");
-                data.consumibles.forEach(consumible => {
-                    const item = crearItem(consumible);
+                data.consumables.forEach(consumable => {
+                    const item = crearItem(consumable);
                     listaConsumibles.appendChild(item);
                 });
             })

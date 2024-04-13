@@ -64,23 +64,3 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-    const selectIdioma = document.getElementById("languaje");
-    const opcionesIdioma = ["Español", "Inglés", "Francés", "Alemán"];
-    const iconos = ["fa-language", "fa-language", "fa-language", "fa-language"]; 
-
-    opcionesIdioma.forEach(function(opcion, index) {
-        const opcionElemento = document.createElement("option");
-        opcionElemento.textContent = opcion;
-        
-        // Crear el elemento de icono y agregar clases de Font Awesome
-        const icono = document.createElement("i");
-        icono.classList.add("fas", iconos[index]);
-        
-        // Agregar el icono al principio del texto de la opción
-        opcionElemento.insertBefore(icono, opcionElemento.firstChild);
-        
-        // Agregar la opción al select
-        selectIdioma.appendChild(opcionElemento);
-    });
-});

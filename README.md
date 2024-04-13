@@ -28,6 +28,13 @@ Clona este repositorio en tu máquina local utilizando el siguiente comando:
 - git clone https://github.com/mandalestart/JS.GAME-proyecto-CH-2024.git
 - Abre el archivo index.html en tu navegador web para comenzar a jugar.
 
+# Como Jugar
+
+    - Registrese y/o inisie sesion
+    - Se le redireccionara a la pantalla de juego
+    - utilize  las flechas direccionales para poder mover el tanque y la barra espaciadora para disparar (actualmente no se a desarrollado la opcion de remapear el teclado)
+    - 
+
 # Contribuciones
 ¡Las contribuciones son bienvenidas! Si tienes ideas para mejorar el juego, puedes abrir un problema en el repositorio o enviar una solicitud de extracción con tus cambios propuestos.
 
@@ -35,3 +42,4 @@ Clona este repositorio en tu máquina local utilizando el siguiente comando:
 Este proyecto está bajo la Licencia MIT. Para más detalles, consulta el archivo LICENSE en el repositorio.
 
 ¡Espero que disfrutes jugando  tanto como yo disfruto creándolo! Si tienes alguna pregunta o sugerencia, no dudes en ponerte en contacto. ¡Que te diviertas!
+

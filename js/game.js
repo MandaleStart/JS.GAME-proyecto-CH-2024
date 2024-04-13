@@ -1,191 +1,166 @@
-/* usernick de player 1 y 2 seran pedidos dentro del juego despues  como usuarios temporales
-    Seccion de login permitira  crear usuarios permanentes para guardar los puntajes en una BD
- */
+let tank;
+let bullets;
+let obstacles;
+let enemies; // Grupo para los enemigos
+let score = 0;
+let lives = 3;
+let ammo = 10;
+let speedPowerup;
+let ammoPowerup;
 
-// [Funcion para cargar juego]
-function loadGame() {
-    console.log('Inicia carga')
-    //crear nuevo tanque para jugador dentro de juego 
-    let canvas = document.getElementById('juego');
-    canvas.innerHTML += `
-        <div id="player1">
-            <div id="oruga-izquierda"></div>
-            <div id="tanque"></div>
-            <div id="base-cannon"></div>
-            <div id="cannon"></div>
-            <div id="oruga-derecha"></div>
-        </div>
-    `;
-    canvas.innerHTML += `
-        <div id="player2">
-            <div id="oruga-izquierda"></div>
-            <div id="tanque"></div>
-            <div id="base-cannon"></div>
-            <div id="cannon"></div>
-            <div id="oruga-derecha"></div>
-        </div>
-    `;
-};
-
-loadGame();
-// Posición inicial del tanque 1 y 2
-let posXPlayer1 = 0;
-let posYPlayer1 = 0;
-
-let posXPlayer2 = 100;
-let posYPlayer2 = 50;
-
-// pasos al mover
-const step = 10;
-
-// Función para verificar colisión entre tanques 
-function verificarColision(x1, y1, x2, y2) {
-    return Math.abs(x1 - x2) < 30 && Math.abs(y1 - y2) < 30;
+function preload() {
+    this.load.image('tank', '../models/tanques/player.png');
+    this.load.image('bullet', 'ruta/a/la/imagen/proyectil.png');
+    this.load.image('obstacle', '../models/terrain/obstacles/Container_A.png');
+    this.load.image('speed', '../models/dropitem/speed.png');
+    this.load.image('ammo', '../models/dropitem/Ammo.png');
+    this.load.image('enemy', '../models/tank/enemy.png');
+    
 }
 
-// Función para mover tanque
-function moverTanque(direction, player, posX, posY) {
-    let newX = posX;
-    let newY = posY;
-        switch (direction) {
-            case 'arriba':
-                if (posY - step >= 0) {
-                    posY -= step;
-                    foc = "0deg";
-                    console.log(`${player}Player se mueve hacia arriba`);
-                } else {
-                    console.log("No se puede mover hacia arriba");
-                }
-                break;
-            case 'abajo':
-                if (posY + step <= window.innerHeight - player.clientHeight) {
-                    posY += step;
-                    foc = "180deg";
-                    console.log(`${player} se mueve hacia abajo`);
-                } else {
-                    console.log("No se puede mover hacia abajo");
-                }
-                break;
-            case 'izquierda':
-                if (posX - step >= 0) {
-                    posX -= step;
-                    foc = "-90deg";
-                    console.log(`${player} se mueve hacia la izquierda`);
-                } else {
-                    console.log("No se puede mover hacia la izquierda");
-                }
-                break;
-            case 'derecha':
-                if (posX + step <= window.innerWidth - player.clientWidth) {
-                    posX += step;
-                    foc = "90deg";
-                    console.log(`${player} se mueve hacia la derecha`);
-                } else {
-                    console.log("No se puede mover hacia la derecha");
-                }
-                break;
+function create() {
+    tank = this.physics.add.sprite(100, 100, 'tank');
+    tank.setScale(0.5);
+    this.physics.world.enable(tank);
+
+    bullets = this.physics.add.group();
+    obstacles = this.physics.add.group();
+    enemies = this.physics.add.group(); // Crear grupo para los enemigos
+
+
+    tank.setDisplaySize(50, 50);
+    
+    cursors = this.input.keyboard.createCursorKeys();
+
+    tank.setCollideWorldBounds(true);
+
+    for (let i = 0; i < 5; i++) {
+        let obstacle = obstacles.create(Phaser.Math.Between(100, 700), Phaser.Math.Between(100, 500), 'obstacle');
+        
+        obstacle.setDisplaySize(100, 150);
+    }
+
+    this.physics.add.collider(bullets, obstacles, bulletHitObstacle, null, this);
+    this.physics.add.collider(tank, obstacles, tankHitObstacle, null, this);
+    this.physics.add.collider(tank, enemies, tankHitEnemy, null, this); // Detectar colisión entre el tanque y los enemigos
+
+    speedPowerup = this.physics.add.image(Phaser.Math.Between(100, 700), Phaser.Math.Between(100, 500), 'speed');
+    speedPowerup.setDisplaySize(40, 40);
+    this.physics.add.overlap(tank, speedPowerup, collectSpeedPowerup, null, this);
+
+    ammoPowerup = this.physics.add.image(Phaser.Math.Between(100, 700), Phaser.Math.Between(100, 500), 'ammo');
+    ammoPowerup.setDisplaySize(40, 40);
+    this.physics.add.overlap(tank, ammoPowerup, collectAmmoPowerup, null, this);
+
+    // Crear enemigos en posiciones aleatorias
+    for (let i = 0; i < 3; i++) {
+        let enemy = enemies.create(Phaser.Math.Between(100, 700), Phaser.Math.Between(100, 500), 'enemy');
+        enemy.setVelocity(Phaser.Math.Between(-50, 50), Phaser.Math.Between(-50, 50)); // Establecer una velocidad aleatoria para los enemigos
+        enemy.setCollideWorldBounds(true);
+        enemy.setDisplaySize(50, 50);
+
+    }
+    
+    let scoreText = this.add.text(16, 16, 'Puntuación: 0', { fontSize: '24px', fill: '#fff' });
+    livesText = this.add.text(650, 16, 'Vidas: 3', { fontSize: '24px', fill: '#fff' });
+    ammoText = this.add.text(350, 16, 'Municiones: 10', { fontSize: '24px', fill: '#fff' });
+}
+
+function update() {
+    if (cursors.up.isDown) {
+        tank.setVelocityY(-100);
+    } else if (cursors.down.isDown) {
+        tank.setVelocityY(100);
+    } else {
+        tank.setVelocityY(0);
+    }
+
+    if (cursors.left.isDown) {
+        tank.setVelocityX(-100);
+    } else if (cursors.right.isDown) {
+        tank.setVelocityX(100);
+    } else {
+        tank.setVelocityX(0);
+    }
+
+    if (cursors.space.isDown && ammo > 0) {
+        fireBullet();
+        ammo--;
+        ammoText.setText('Municiones: ' + ammo);
+    }
+}
+
+function fireBullet() {
+    let bullet = bullets.create(tank.x, tank.y, 'bullet');
+    bullet.setVelocityY(-200);
+}
+
+function bulletHitObstacle(bullet, obstacle) {
+    bullet.destroy();
+    obstacle.destroy();
+    
+    score += 10;
+    updateScore();
+}
+
+function tankHitObstacle(tank, obstacle) {
+    lives -= 1;
+    livesText.setText('Vidas: ' + lives);
+
+    if (lives === 0) {
+        gameOver();
+    }
+}
+
+function tankHitEnemy(tank, enemy) {
+    // Si el tanque colisiona con un enemigo, perder una vida
+    lives -= 1;
+    livesText.setText('Vidas: ' + lives);
+
+    if (lives === 0) {
+        gameOver();
+    }
+}
+
+function collectSpeedPowerup(tank, powerup) {
+    speedPowerup.destroy();
+    tank.setVelocity(300);
+    setTimeout(() => {
+        tank.setVelocity(0);
+    }, 5000);
+}
+
+function collectAmmoPowerup(tank, powerup) {
+    ammo += 5;
+    ammoText.setText('Municiones: ' + ammo);
+    powerup.destroy();
+}
+
+function updateScore() {
+    this.scene.text.setText('Puntuación: ' + score);
+}
+
+function gameOver() {
+    this.add.text(300, 250, '¡Juego Terminado!', { fontSize: '32px', fill: '#fff' });
+    this.scene.pause();
+}
+
+const config = {
+    type: Phaser.AUTO,
+    width: 800,
+    height: 600,
+    scene: {
+        preload: preload,
+        create: create,
+        update: update
+    },
+    physics: {
+        default: 'arcade',
+        arcade: {
+            gravity: { y: 0 },
+            debug: false
         }
-    // colision
-    if (player === 'player1' && !verificarColision(newX, newY, posXPlayer2, posYPlayer2) ||
-        player === 'player2' && !verificarColision(newX, newY, posXPlayer1, posYPlayer1)) {
-            
-        posX = newX;
-        posY = newY;
     }
-
-    // Actualizar posición del tanque
-    document.getElementById(player).style.transform = 'translate(-50%, -50%)' + 'rotate(' + foc + ')';
-    document.getElementById(player).style.top = posY + 'px';
-    document.getElementById(player).style.left = posX + 'px';
-}
-function disparar(player) {
-    console.log(` ${player} ha disparado un proyectil`)
 };
 
-// event listeners para las flechas del teclado y disparo
-document.addEventListener('keydown', (event) => {
-    switch (event.key) {
-        //[ Player 1] 
-        case 'ArrowUp':
-            moverTanque('arriba', 'player1', posXPlayer1, posYPlayer1);
-            break;
-        case 'ArrowDown':
-            moverTanque('abajo', 'player1', posXPlayer1, posYPlayer1);
-            break;
-        case 'ArrowLeft':
-            moverTanque('izquierda', 'player1', posXPlayer1, posYPlayer1);
-            break;
-        case 'ArrowRight':
-            moverTanque('derecha', 'player1', posXPlayer1, posYPlayer1);
-            break;
-        case '.':
-            disparar('player1');
-            break;
-        //[ Player 2] 
-        case 'W':
-        case 'w':
-            moverTanque('arriba', 'player2', posXPlayer2, posYPlayer2);
-            break;
-        case 'S':
-        case 's':
-            moverTanque('abajo', 'player2', posXPlayer2, posYPlayer2);
-            break;
-        case 'A':
-        case 'a':
-            moverTanque('izquierda', 'player2', posXPlayer2, posYPlayer2);
-            break;
-        case 'D':
-        case 'd':
-            moverTanque('derecha', 'player2', posXPlayer2, posYPlayer2);
-            break;
-        case ' ':
-            disparar('player2');
-            break;
-    }
-});
-
-/*
-
-function moverTanque(direction, player) {
-    switch (direction) {
-        case 'arriba':
-            if (posY - step >= 0) {
-                posY -= step;
-                foc = "0deg";
-                console.log('Player se mueve hacia arriba');
-            } else {
-                console.log("No se puede mover hacia arriba");
-            }
-            break;
-        case 'abajo':
-            if (posY + step <= window.innerHeight - player.clientHeight) {
-                posY += step;
-                foc = "180deg";
-                console.log('Player se mueve hacia abajo');
-            } else {
-                console.log("No se puede mover hacia abajo");
-            }
-            break;
-        case 'izquierda':
-            if (posX - step >= 0) {
-                posX -= step;
-                foc = "-90deg";
-                console.log('Player se mueve hacia la izquierda');
-            } else {
-                console.log("No se puede mover hacia la izquierda");
-            }
-            break;
-        case 'derecha':
-            if (posX + step <= window.innerWidth - player.clientWidth) {
-                posX += step;
-                foc = "90deg";
-                console.log('Player se mueve hacia la derecha');
-            } else {
-                console.log("No se puede mover hacia la derecha");
-            }
-            break;
-    }
-    player.style.top = posY + 'px';
-    player.style.left = posX + 'px';
-    player.style.transform = 'translate(-50%, -50%)' + 'rotate(' + foc + ')';
-}*/
+const game = new Phaser.Game(config);

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,48 +9,73 @@
     <link rel="stylesheet" href="../css/reglog.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
+
 <body>
     <nav class="navbar">
         <a href="../index.html" class="navbar-brand">NoCombatName</a>
-        <ul class="navbar-nav">
-            <li class="nav-item"><a href="/views/game.html" class="nav-link">Jugar</a></li>
-            <li class="nav-item"><a href="/views/shop.html" class="nav-link">Tienda</a></li>
-            <li class="nav-item"><div class="nav-link" id="user-control"></div></li>
-            <li class="nav-item"> <select id="languaje">ESP</select></li>
-            
+        <ul class="navbar-nav" id="user-control-list">
         </ul>
 
 
     </nav>
-    <main >
+    <!--<div id="secondary-navbar"></div>-->
+    <main>
+        <!-- Registro -->
         <div>
             <h1>Registro</h1>
-            username
-            <textarea name="username-reg" id="username-reg" cols="15" rows="1"></textarea>
-            mail
-            <textarea name="mail-reg" id="mail-reg" cols="30" rows="1"></textarea>
-            password
-            <textarea name="password-reg" id="password-reg" cols="30" rows="1"></textarea>
-            Confirm password
-            <textarea name="confirm-password-reg" id="confirm-password-reg" cols="30" rows="1"></textarea>
-        
-            birthday
-            <input type="date" name="" id="date-reg">
-            game notify
+            <label for="username-reg">Username</label>
+            <input type="text" name="username-reg" id="username-reg">
+    
+            <label for="mail-reg">Mail</label>
+            <input type="email" name="mail-reg" id="mail-reg">
+    
+            <label for="password-reg">Password</label>
+            <div class="password-container">
+                <input type="password" name="password-reg" id="password-reg">
+                <span id="toggle-password-reg" class="toggle-password">
+                    <i class="far fa-eye"></i>
+                </span>
+            </div>
+    
+            <label for="confirm-password-reg">Confirm Password</label>
+            <div class="password-container">
+                <input type="password" name="confirm-password-reg" id="confirm-password-reg">
+                <span id="toggle-confirm-password" class="toggle-password">
+                    <i class="far fa-eye"></i>
+                </span>
+            </div>
+    
+            <label for="date-reg">Birthday</label>
+            <input type="date" name="date-reg" id="date-reg" max="" min="">
+    
+            <label for="notify-reg">Game Notify</label>
             <input type="checkbox" name="notify-reg" id="notify-reg">
-            game TYC
+    
+            <label for="tyc-reg">Game TYC</label>
             <input type="checkbox" name="tyc-reg" id="tyc-reg">
+    
             <button id="btn-send-reg">Registrar</button>
         </div>
+    
+        <!-- Iniciar Sesión -->
         <div>
-           <h1>Iniciar Sesion</h1> 
-           Usuario
-           <textarea name="" id="user-login" cols="30" rows="1"></textarea>
-           password
-           <textarea name="" id="password-login" cols="30" rows="1"></textarea>
-           <button id="btn-send-login">Login</button>
+            <h1>Iniciar Sesión</h1>
+            <label for="user-login">Mail</label>
+            <input type="email" name="user-login" id="user-login">
+    
+            <label for="password-login">Password</label>
+            <div class="password-container">
+                <input type="password" name="password-login" id="password-login">
+                <span id="toggle-login-password" class="toggle-password">
+                    <i class="far fa-eye"></i>
+                </span>
+            </div>
+    
+            <a id="btn-reset-pass">Olvidé la contraseña</a>
+            <button id="btn-send-login">Login</button>
         </div>
     </main>
+    
     <footer class="footer">
         <div>
             <h1>Link Utiles</h1>
@@ -60,7 +86,9 @@
         </div>
         <div> © 2024 Mandalestart.com - Todos los derechos reservados </div>
     </footer>
-    <script src="../js/reglog.js"></script>
+
+    <script src="../js/reglogv2.js" type="module"></script>
     <script src="../js/main.js"></script>
 </body>
+
 </html>

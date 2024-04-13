@@ -1,5 +1,5 @@
 {
-    "mejoras": {
+    "upgrades": {
         "canones": [
             {
                 "id": "C-01",
@@ -8,7 +8,7 @@
                 "precio": 0,
                 "potencia": 1,
                 "velocidad_disparo": 1,
-                "img": "../models/PNG/CANNONS/C-01.png"
+                "img": "../models/shopitems/upgrades/CANNONS/C-01.png"
             },
             {
                 "id": "C-02",
@@ -17,7 +17,7 @@
                 "precio": 150,
                 "potencia": 0.8,
                 "velocidad_disparo": 1.5,
-                "img": "../models/PNG/CANNONS/C-02.png"
+                "img": "../models/shopitems/upgrades/CANNONS/C-02.png"
             },
             {
                 "id": "C-03",
@@ -26,7 +26,7 @@
                 "precio": 200,
                 "potencia": 1.5,
                 "velocidad_disparo": 0.8,
-                "img": "../models/PNG/CANNONS/C-03.png"
+                "img": "../models/shopitems/upgrades/CANNONS/C-03.png"
             }
         ],
         "orugas": [
@@ -37,7 +37,7 @@
                 "precio": 50,
                 "velocidad": 1,
                 "resistencia": 1,
-                "img": "../models/PNG/ORUGAS/O-01.png"
+                "img": "../models/shopitems/upgrades/ORUGAS/O-01.png"
             },
             {
                 "id": "O-02",
@@ -46,7 +46,7 @@
                 "precio": 100,
                 "velocidad": 1.5,
                 "resistencia": 1,
-                "img": "../models/PNG/ORUGAS/O-02.png"
+                "img": "../models/shopitems/upgrades/ORUGAS/O-02.png"
             },
             {
                 "id": "O-03",
@@ -55,7 +55,7 @@
                 "precio": 150,
                 "velocidad": 0.8,
                 "resistencia": 1,
-                "img": "../models/PNG/ORUGAS/O-03.png"
+                "img": "../models/shopitems/upgrades/ORUGAS/O-03.png"
             }
         ],
         "bloque_principal": [
@@ -65,7 +65,7 @@
                 "descripcion": "El bloque principal estándar, ofrece protección básica.",
                 "precio": 50,
                 "resistencia": 1,
-                "img": "../models/PNG/BLOQUE/B-01.png"
+                "img": "../models/shopitems/upgrades/BLOQUE/B-01.png"
             },
             {
                 "id": "B-02",
@@ -73,7 +73,7 @@
                 "descripcion": "Bloque que ofrece mayor resistencia pero es más pesado.",
                 "precio": 100,
                 "resistencia": 1.5,
-                "img": "../models/PNG/BLOQUE/B-02.png"
+                "img": "../models/shopitems/upgrades/BLOQUE/B-02.png"
             },
             {
                 "id": "B-03",
@@ -81,7 +81,7 @@
                 "descripcion": "Bloque liviano que reduce la resistencia pero mejora la velocidad.",
                 "precio": 75,
                 "resistencia": 0.8,
-                "img": "../models/PNG/BLOQUE/B-03.png"
+                "img": "../models/shopitems/upgrades/BLOQUE/B-03.png"
             }
         ],
         "montaje_canon": [
@@ -91,7 +91,7 @@
                 "descripcion": "Montaje básico para el cañón.",
                 "precio": 50,
                 "precision": 1,
-                "img": "../models/PNG/MONTAJE/M-01.png"
+                "img": "../models/shopitems/upgrades/MONTAJE/M-01.png"
             },
             {
                 "id": "M-02",
@@ -99,7 +99,7 @@
                 "descripcion": "Montaje que mejora la potencia del cañón.",
                 "precio": 100,
                 "velocidad_disparo": 1.5,
-                "img": "../models/PNG/MONTAJE/M-02.png"
+                "img": "../models/shopitems/upgrades/MONTAJE/M-02.png"
             },
             {
                 "id": "M-03",
@@ -107,11 +107,11 @@
                 "descripcion": "Montaje que permite disparar el cañón más rápidamente.",
                 "precio": 75,
                 "velocidad_disparo": 1.5,
-                "img": "../models/PNG/MONTAJE/M-03.png"
+                "img": "../models/shopitems/upgrades/MONTAJE/M-03.png"
             }
         ]
     },
-    "consumibles": [
+    "consumables": [
         {
             "id": "CON-01",
             "nombre": "Refuerzo de velocidad",
@@ -119,7 +119,7 @@
             "precio": 50,
             "duracion_segundos": 10,
             "boost_velocidad": 1.5,
-            "img": "../models/PNG/CONS/SPD-01.png"
+            "img": "../models/shopitems/consumables/SPD-01.png"
         },
         {
             "id": "CON-02",
@@ -128,7 +128,7 @@
             "precio": 75,
             "duracion_segundos": 15,
             "reduccion_dano": 0.5,
-            "img": "../models/PNG/CONS/SH-02.png"
+            "img": "../models/shopitems/consumables/SH-02.png"
         },
         {
             "id": "CON-03",
@@ -137,7 +137,7 @@
             "precio": 100,
             "duracion_segundos": 8,
             "boost_recarga": 0.5,
-            "img": "../models/PNG/CONS/RF-03.png"
+            "img": "../models/shopitems/consumables/RF-03.png"
         },
         {
             "id": "CON-04",
@@ -146,7 +146,7 @@
             "precio": 150,
             "duracion_segundos": 12,
             "boost_dano": 1.2,
-            "img": "../models/PNG/CONS/GP-04.png"
+            "img": "../models/shopitems/consumables/GP-04.png"
         },
         {
             "id": "CON-05",
@@ -154,7 +154,7 @@
             "descripcion": "Misil balistico que genera daño en area , Requiere un montaje con anclaje de misiles",
             "precio": 150,
             "cantidad": 12,
-            "img": "../models/PNG/CONS/HS-01.png"
+            "img": "../models/shopitems/consumables/HS-01.png"
         },
         {
             "id": "CON-06",
@@ -162,7 +162,7 @@
             "descripcion": "Misil balistico con buscador de calor que genera daño en area , Requiere un montaje con anclaje de misiles.",
             "precio": 150,
             "cantidad": 12,
-            "img": "../models/PNG/CONS/RAP-01.png"
+            "img": "../models/shopitems/consumables/RAP-01.png"
         },
         {
             "id": "CON-07",
@@ -170,16 +170,15 @@
             "descripcion": "Mina terrestre que se desplaza por el mapa, no distingue jugadores de enemigos una vez se activa",
             "precio": 150,
             "cantidad": 12,
-            "img": "../models/PNG/CONS/MTD-02.png"
-        }        ,
+            "img": "../models/shopitems/consumables/MTD-02.png"
+        },
         {
             "id": "CON-08",
             "nombre": "Mina terrestre basica",
             "descripcion": "Mina terrestre basica, no distingue jugadores de enemigos una vez se activa",
             "precio": 150,
             "cantidad": 12,
-            "img": "../models/PNG/CONS/MTB-01.png"
+            "img": "../models/shopitems/consumables/MTB-01.png"
         }
-
     ]
 }

@@ -12,22 +12,33 @@
 <body>
     <nav class="navbar">
         <a href="index.html" class="navbar-brand">NoCombatName</a>
-        <ul class="navbar-nav">
-            <li class="nav-item"><a href="/views/game.html" class="nav-link">Jugar</a></li>
-            <li class="nav-item"><a href="/views/shop.html" class="nav-link">Tienda</a></li>
-            <li class="nav-item"><div class="nav-link" id="user-control"></div></li>
-            <li class="nav-item"> <select id="languaje">ESP</select></li>
+        <ul class="navbar-nav" id="user-control-list">
         </ul>
 
 
     </nav>
-    <main>
+    <!--<div id="secondary-navbar"></div>-->
+
+    <main id="main-enlist">
         <div class="container">
-            <h1>Bienvenido a NoCombatName</h1>
-            <p>¡Prepárate para disfrutar de emocionantes batallas de tanques en un entorno retro!</p>
-            <p>NoCombatName es un juego inspirado en los clásicos de los 80. Pilota tu tanque, destruye enemigos y conquista territorios en emocionantes misiones.</p>
-            <p>Personaliza tu tanque con diferentes mejoras y consumibles para adaptarlo a tu estilo de juego.</p>
-            <a class="enlist-now" href="./views/game.html">¡Enlistate AHORA!</a>
+            <div id="container-enlist">
+                <div id="enlist-tittle">
+                    <h1>Bienvenido soldado</h1>
+                </div>
+                <div id="enlist-text">
+
+                    <p>¡Prepárate para disfrutar de emocionantes batallas de tanques en un entorno retro!</p>
+                    <p>NoCombatName es un juego inspirado en los clásicos de los 80. Pilota tu tanque, destruye enemigos
+                        y
+                        conquista territorios en emocionantes misiones.</p>
+                    <p>Personaliza tu tanque con diferentes mejoras y consumibles para adaptarlo a tu estilo de juego.
+                    </p>
+
+                </div>
+                <div id="enlist-now">
+                    <a class="enlist-now" href="./views/game.html">¡Enlistate AHORA!</a>
+                </div>
+            </div>
         </div>
     </main>
     <footer class="footer">
@@ -40,7 +51,7 @@
         </div>
         <div> © 2024 Mandalestart.com - Todos los derechos reservados </div>
     </footer>
-    
+
     <script src="../js/main.js"></script>
 </body>
 

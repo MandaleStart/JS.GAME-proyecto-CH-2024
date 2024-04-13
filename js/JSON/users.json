@@ -1,0 +1,23 @@
+{
+    "usuarios": [
+      {
+        "user": "mandalestart",
+        "pass": "contraseña1",
+        "mail": "usuario1@example.com",
+        "upgrade": [ "O-02", "C-01"],
+        "consumables": [
+          {"id": "CON-01", "cantidad": 3},
+          {"id": "CON-05", "cantidad": 1}
+        ]
+      },
+      {
+        "user": "usuario2",
+        "pass": "contraseña2",
+        "mail": "usuario2@example.com",
+        "upgrade": ["mejora3"],
+        "consumables": [
+          {"id": "CON-03", "cantidad": 2}
+        ]
+      }
+    ]
+  }

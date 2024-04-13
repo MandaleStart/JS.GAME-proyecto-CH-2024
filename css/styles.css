@@ -63,7 +63,6 @@ a:hover {
   background-color: #333;
   color: white;
   padding: 10px 20px;
-  margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -102,5 +101,73 @@ a:hover {
   text-align: center;
 }
 main{
-  margin-top: 5%;
+  width: 100%;
+}
+#secondary-navbar {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.usuario {
+  margin-bottom: 5px;
+  padding: 5px;
+  border-bottom: 1px solid #ddd;
+}
+
+.usuario:last-child {
+  border-bottom: none;
+}
+
+.usuario span {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.usuario span:first-child {
+  font-weight: bold;
+}
+
+#main-enlist{
+  background-color: darkblue;
+}
+
+#container-enlist {
+  background-image: url(../models/gui/Frame.png);
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 50%;
+  height: 80vh;
+  margin: 2% auto; /* Cambiado para centrar verticalmente y horizontalmente */
+  padding: 22px; /* Añadido para espacio interior */
+  display: flex;
+  flex-direction: column; /* Alinear elementos verticalmente */
+  justify-content: center;
+  align-items: center;
+}
+
+#enlist-tittle {
+  height: 20%;
+  color: #ccc;
+  margin-bottom: 20px; /* Añadido espacio entre elementos */
+  text-align: center; /* Centrar texto */
+}
+
+#enlist-text {
+  height: 50%;
+  color: #ccc;
+  font-size: 1.2em;
+  text-align: center; /* Centrar texto */
+  margin-bottom: 20px; /* Añadido espacio entre elementos */
+}
+
+#enlist-now {
+  height: 20%;
+  background-image: url( ../models/gui/btn_frame.png);
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center; /* Centrar botón */
+  width: 50%;
 }
