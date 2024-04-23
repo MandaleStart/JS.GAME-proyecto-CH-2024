@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     userControlList.appendChild(createSelectIdioma());
-   /*mostrarPuntajes();*/
+   
 });
 
 function createNavItem(texto, href) {
@@ -69,19 +69,6 @@ function closeSession() {
     window.location.href = "/views/reg-log.html";
 }
 
-/*function mostrarPuntajes() {
-    const tabla = document.getElementById("scoretable");
-  
-    firestore.collection("puntajes").get().then(querySnapshot => {
-        querySnapshot.forEach(doc => {
-            const fila = tabla.insertRow();
-            fila.insertCell(0).textContent = doc.id;
-            fila.insertCell(1).textContent = doc.data().puntaje;
-            const tiempoEnMinutos = milisegundosAMinutos(doc.data().tiempo);
-            fila.insertCell(2).textContent = `${tiempoEnMinutos} minutos`;
-        });
-    });
-}*/
 
 function milisegundosAMinutos(ms) {
     return Math.floor(ms / 60000); // 1 minuto = 60000 milisegundos

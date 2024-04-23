@@ -1,0 +1,26 @@
+/* Estilo para el contenedor de perfiles de usuario */
+.perfil-usuario {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilo para el nombre de usuario */
+  .perfil-usuario h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  /* Estilo para la información del usuario */
+  .perfil-usuario p {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  
+  /* Estilo para la fecha de creación */
+  .perfil-usuario .fecha-creacion {
+    font-style: italic;
+    color: #666;
+  }
+  
