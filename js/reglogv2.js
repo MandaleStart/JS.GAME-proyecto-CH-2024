@@ -156,10 +156,11 @@ async function signIn() {
             Swal.fire('Error', ' Se han enviado demasiadas solicitudes de inicio de sesión recientemente. Espera un momento antes de intentarlo de nuevo..');
         } else if (error.code === 'auth/user-disabled') {
             Swal.fire('Error', 'Error al iniciar: La cuenta está deshabilitada.');
-        } else {
+        } else if (error.code === 'auth/invalid-credential'){
             console.log(error)
             Swal.fire('Error', 'Error al iniciar: Revise sus datos de acceso');
-        }
+        } else {
+            console.log(error)}
     }
 }
 
@@ -206,7 +207,3 @@ toggleLoginPassword.addEventListener('click', function () {
     passwordInputLogin.setAttribute('type', type);
     this.querySelector('i').classList.toggle('fa-eye-slash');
 });
-
-
-
-

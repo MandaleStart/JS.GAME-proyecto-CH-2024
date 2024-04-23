@@ -1,6 +1,6 @@
-import MainMenuScene from './gamecore/menu.js';
-import { TutorialScene } from './gamecore/gamescene.js';
-import SettingsScene from './gamecore/settings.js';
+import MainMenuScene from '/game/js/menu.js';
+import { TutorialScene } from '/game/js/gamescene.js';
+import SettingsScene from '/game/js/settings.js';
 
 // Define el directorio de los temas de música
 export const musicDirectory = './models/music/';

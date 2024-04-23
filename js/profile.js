@@ -1,5 +1,7 @@
 
 import { auth, database } from "./firebaseConfig.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
+import { set, ref , get, onValue } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
 // Obtener elementos del DOM
 const profileZone = document.getElementById('main-profile');
 const userControlList = document.getElementById('user-control-list');

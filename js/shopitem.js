@@ -164,3 +164,4 @@ function comprarItem(item) {
     // Actualizar la visualización del carrito
     actualizarVisualizacionCarrito();
 }
+actualizarVisualizacionCarrito();

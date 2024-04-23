@@ -1,4 +1,4 @@
-import { musicDirectory, musicList, loadGlobalMusic } from '../game.js'; // Ajusta la ruta de la importación según tu estructura de archivos
+import { musicDirectory, musicList, loadGlobalMusic } from '../../js/game.js'; // Ajusta la ruta de la importación según tu estructura de archivos
 
 class MainMenuScene extends Phaser.Scene {
     constructor() {
@@ -49,13 +49,13 @@ class MainMenuScene extends Phaser.Scene {
             music.play();
 
             music.once('complete', () => {
-                music.destroy(); // Liberar recursos de memoria una vez que la música termine de reproducirse
-                currentIndex = (currentIndex + 1) % musicList.length; // Avanza al siguiente tema en la lista
-                playNextMusic(); // Reproduce el siguiente tema
+                music.destroy(); 
+                currentIndex = (currentIndex + 1) % musicList.length; 
+                playNextMusic();
             });
         };
 
-        playNextMusic(); // Inicia la reproducción del primer tema
+        playNextMusic(); 
     }
 }
 

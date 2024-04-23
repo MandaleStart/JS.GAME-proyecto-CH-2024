@@ -1,4 +1,4 @@
-import { preloadSprites, generateRandomMap } from './mapeditor.js';
+import { preloadSprites, generateRandomMap } from '../../js/gamecore/mapeditor.js';
 let keyConfig = {
     "upKey": "W",
     "downKey": "S",

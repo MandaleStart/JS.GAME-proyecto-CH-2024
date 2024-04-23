@@ -23,4 +23,48 @@
     font-style: italic;
     color: #666;
   }
+
+  .panel-usuario {
+    
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+  }
+  
+  .panel-usuario h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+  
+  .campo {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  input[type="date"],
+  input[type="mail"],
+  input[type="checkbox"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 4px;
+    margin-bottom: 8px;
+  }
+  
+  input[type="checkbox"] {
+    width: auto;
+  }
+  
+  #main-profile{
+    margin-top: 5%;
+  };
   
