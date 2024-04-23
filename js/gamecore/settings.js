@@ -17,10 +17,8 @@ class SettingsScene extends Phaser.Scene {
 
         // Definir acción al hacer clic en el botón de música
         musicButton.on('pointerdown', () => {
-            // Lógica para cambiar la música según la configuración
-            // Por ejemplo, cambiar al siguiente tema en la lista de música
-            // Esto es solo un ejemplo, puedes implementar la lógica según tu necesidad
-            // Supongamos que tienes una variable en localStorage llamada 'musicIndex' que indica el índice del próximo tema de música
+
+        
             let currentIndex = localStorage.getItem('musicIndex') || 0;
             currentIndex = (parseInt(currentIndex) + 1) % musicList.length;
             localStorage.setItem('musicIndex', currentIndex);
@@ -30,8 +28,7 @@ class SettingsScene extends Phaser.Scene {
             }
             loadGlobalMusic(currentIndex);
         });
-
-        // Otros elementos de la escena...
+s
     }
 }
 

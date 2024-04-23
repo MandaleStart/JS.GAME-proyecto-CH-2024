@@ -142,7 +142,7 @@ async function signIn() {
             }
         });
         
-        // Agrega un retraso de 2 segundos antes de redireccionar automáticamente
+        // Agrega un retraso de 10 segundos antes de redireccionar automáticamente
         setTimeout(function() {
             window.location.href = "/views/game.html";
         }, 10000);

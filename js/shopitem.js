@@ -127,14 +127,11 @@ function actualizarVisualizacionCarrito() {
 
 // Función para finalizar la compra
 function finalizarCompra() {
-    // Aquí puedes realizar alguna acción, como enviar la compra a un servidor
-    // o simplemente mostrar un mensaje de confirmación
+    
     Swal.fire('¡Compra finalizada!', 'Gracias por tu compra', 'success');
 
-    // Después de finalizar la compra, puedes limpiar el carrito si lo deseas
     localStorage.removeItem('carrito');
 
-    // También puedes actualizar la visualización del carrito
     actualizarVisualizacionCarrito();
 }
 function comprarItem(item) {
