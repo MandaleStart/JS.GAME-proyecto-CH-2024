@@ -32,8 +32,9 @@ Clona este repositorio en tu máquina local utilizando el siguiente comando:
 
     - Registrese y/o inisie sesion
     - Se le redireccionara a la pantalla de juego
-    - utilize  las flechas direccionales para poder mover el tanque y la barra espaciadora para disparar (actualmente no se a desarrollado la opcion de remapear el teclado)
+    - utilize  las flechas direccionales para poder mover el tanque y la barra espaciadora para disparar 
     - 
+(actualmente no se a desarrollado la opcion de remapear el teclado)
 
 # Contribuciones
 ¡Las contribuciones son bienvenidas! Si tienes ideas para mejorar el juego, puedes abrir un problema en el repositorio o enviar una solicitud de extracción con tus cambios propuestos.

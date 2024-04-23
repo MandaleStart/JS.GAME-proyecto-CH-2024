@@ -1,0 +1,25 @@
+.tabla-puntajes {
+    /* Estilos para el div scoretable */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  
+  .tabla-puntajes table {
+    /* Estilos para la tabla dentro de scoretable */
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .tabla-puntajes th, .tabla-puntajes td {
+    /* Estilos para las celdas de la tabla */
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .tabla-puntajes th {
+    /* Estilos para las celdas de encabezado */
+    background-color: #f2f2f2;
+  }
+  

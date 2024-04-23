@@ -1,24 +1,6 @@
-// Importa los módulos necesarios de Firebase SDK
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
-import { getDatabase, ref, set , get } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
-
-
-// config de FB provisorio
-const firebaseConfig = {
-    apiKey: "AIzaSyCIohCcLbD_gnodGUqkd0cXeveqPQGDt40",
-    authDomain: "nocombatname-1aa34.firebaseapp.com",
-    projectId: "nocombatname-1aa34",
-    storageBucket: "nocombatname-1aa34.appspot.com",
-    messagingSenderId: "458148738106",
-    appId: "1:458148738106:web:1f2887b354df1f79b4f103",
-    databaseURL: "https://nocombatname-1aa34-default-rtdb.firebaseio.com/"
-  };
-
-// Inicializa Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const database = getDatabase(app);
+import { auth, database } from "./firebaseConfig.js";
+import { createUserWithEmailAndPassword, sendPasswordResetEmail, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
+import { set, ref , get } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
 
 // Agrega un evento al botón de registro
 const btnSendReg = document.getElementById('btn-send-reg');
@@ -31,18 +13,29 @@ btnSendReg.addEventListener('click', async function () {
     const gameNotify = document.getElementById('notify-reg').checked;
     const gameTyc = document.getElementById('tyc-reg').checked;
     const emailRegex = /^\S+@\S+\.\S+$/;
-    
+
     if (!emailRegex.test(mail)) {
-        alert('Por favor ingrese una dirección de correo electrónico válida');
+        Swal.fire('Error', 'Por favor ingrese una dirección de correo electrónico válida', 'error');
         return;
     }
 
     if (password !== confirmPassword) {
-        alert('Las contraseñas no coinciden');
+        Swal.fire('Error', 'Las contraseñas no coinciden', 'error');
         return;
     }
+
+    if (password.length < 6) {
+        Swal.fire('Error', 'La contraseña debe tener al menos 6 caracteres', 'error');
+        return;
+    }
+
+    if (!/\d/.test(password)) {
+        Swal.fire('Error', 'La contraseña debe contener al menos un número', 'error');
+        return;
+    }
+
     if (gameTyc !== true) {
-        alert('Debe leer y aceptar los terminos y condiciones');
+        Swal.fire('Error', 'Debe leer y aceptar los términos y condiciones', 'error');
         return;
     }
     try {
@@ -65,28 +58,43 @@ btnSendReg.addEventListener('click', async function () {
             },
             upgrades: {
                 //mejoras iniciales, nombre de mejora y verificador de activacion por ejemplo:   "M-01": true; 
-               
+
             },
             consumables: {
                 // consumibles iniciales con su cantidad, ejemplo: "CON-04": 10,
-                
+
+            },
+            gamesettings: {
+                // configuracion de teclas basicas
+                action: "space",
+                down: "s",
+                left: "a",
+                music: "on",
+                rigth: "d",
+                sound: "on",
+                up: "w"
             }
         });
-        alert('¡Registro exitoso!');
+        Swal.fire('Perfecto!', '¡Registro exitoso!','success');
     } catch (error) {
-        console.error(error.message);
-        alert('Error en el registro');
+        if (error.code === 'auth/email-already-exists') {
+            Swal.fire('Error', 'Otro usuario ya está utilizando el correo electrónico proporcionado.')
+        } else {
+            console.error(error.message);
+            Swal.fire('Error', 'Error en el registro');
+        }
+
     }
 });
 // limitar la fecha de nacimiento 
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear();
     const minYear = currentYear - 100;
     const maxYear = currentYear - 3;
     const setDateY = currentYear - 18;
-    const setDateM =  "01";
-    const setDateD =  "01";
+    const setDateM = "01";
+    const setDateD = "01";
 
 
     const dateInput = document.getElementById('date-reg');
@@ -97,21 +105,23 @@ window.addEventListener('load', function() {
 
 // Agrega un evento al botón de inicio de sesión
 const btnSendLogin = document.getElementById('btn-send-login');
-btnSendLogin.addEventListener('click', async function () {
+btnSendLogin.addEventListener('click', 
+    signIn);
+
+
+async function signIn() {
     const userLogin = document.getElementById('user-login').value;
     const passwordLogin = document.getElementById('password-login').value;
-console.log(userLogin , passwordLogin)
     const emailRegex = /^\S+@\S+\.\S+$/;
     if (!emailRegex.test(userLogin)) {
-        alert('Por favor ingrese una dirección de correo electrónico válida');
+        Swal.fire('Error', 'Por favor ingrese una dirección de correo electrónico válida');
         return;
     }
-
     try {
+        
         // Inicia sesión con Firebase Authentication
         const userCredential = await signInWithEmailAndPassword(auth, userLogin, passwordLogin);
         const user = userCredential.user;
-
         // Obtiene el nombre de usuario desde la base de datos
         const userSnapshot = await get(ref(database, 'users/' + user.uid));
         const userData = userSnapshot.val();
@@ -119,13 +129,39 @@ console.log(userLogin , passwordLogin)
         // Guarda el nombre de usuario en el localStorage
         localStorage.setItem("userLogged", userData.username);
 
-        alert('¡Inicio de sesión exitoso!');
-        window.location.href = "/views/game.html";
-    } catch (error) {
-        console.error(error.message);
-        alert('Nombre de usuario o contraseña incorrectos');
+        Swal.fire({
+            title: 'Inicio de sesión exitoso!',
+            text: '¡Seras redireccionado al juego en unos segundos!',
+            icon: 'success',
+            showConfirmButton: true,
+            confirmButtonText: 'Ir al juego'
+        }).then((result) => {
+            // Redireccionar solo si el usuario hace clic en el botón "OK"
+            if (result.isConfirmed) {
+                window.location.href = "/views/game.html";
+            }
+        });
+        
+        // Agrega un retraso de 2 segundos antes de redireccionar automáticamente
+        setTimeout(function() {
+            window.location.href = "/views/game.html";
+        }, 10000);
+        
     }
-});
+    catch (error) {
+        // Verifica el código de error y muestra un mensaje personalizado
+        if (error.code === 'auth/network-request-failed') {
+            Swal.fire('Error', 'Falló la conexión de red. Verifica tu conexión a internet y vuelve a intentarlo.')
+        } else if (error.code === 'auth/too-many-requests') {
+            Swal.fire('Error', ' Se han enviado demasiadas solicitudes de inicio de sesión recientemente. Espera un momento antes de intentarlo de nuevo..');
+        } else if (error.code === 'auth/user-disabled') {
+            Swal.fire('Error', 'Error al iniciar: La cuenta está deshabilitada.');
+        } else {
+            console.log(error)
+            Swal.fire('Error', 'Error al iniciar: Revise sus datos de acceso');
+        }
+    }
+}
 
 
 //resetear password en firebase
@@ -138,10 +174,10 @@ btnResetPass.addEventListener('click', async function () {
     try {
         // Envía un correo electrónico para restablecer la contraseña
         await sendPasswordResetEmail(auth, emailToReset);
-        alert('Se ha enviado un correo electrónico para restablecer la contraseña.');
+        Swal.fire('Error', 'Se ha enviado un correo electrónico para restablecer la contraseña.');
     } catch (error) {
         console.error(error.message);
-        alert('Error al enviar el correo electrónico para restablecer la contraseña.');
+        Swal.fire('Error', 'Error al enviar el correo electrónico para restablecer la contraseña.');
     }
 });
 // ocultar/mostrar password
@@ -153,20 +189,24 @@ const passwordInputReg = document.getElementById('password-reg');
 const passwordInputLogin = document.getElementById('password-login');
 const confirmPasswordInput = document.getElementById('confirm-password-reg');
 
-togglePasswordReg.addEventListener('click', function() {
+togglePasswordReg.addEventListener('click', function () {
     const type = passwordInputReg.getAttribute('type') === 'password' ? 'text' : 'password';
     passwordInputReg.setAttribute('type', type);
     this.querySelector('i').classList.toggle('fa-eye-slash');
 });
 
-toggleConfirmPassword.addEventListener('click', function() {
+toggleConfirmPassword.addEventListener('click', function () {
     const type = confirmPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
     confirmPasswordInput.setAttribute('type', type);
     this.querySelector('i').classList.toggle('fa-eye-slash');
 });
 
-toggleLoginPassword.addEventListener('click', function() {
+toggleLoginPassword.addEventListener('click', function () {
     const type = passwordInputLogin.getAttribute('type') === 'password' ? 'text' : 'password';
     passwordInputLogin.setAttribute('type', type);
     this.querySelector('i').classList.toggle('fa-eye-slash');
 });
+
+
+
+

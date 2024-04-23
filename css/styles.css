@@ -93,7 +93,6 @@ a:hover {
 }
 
 .footer {
-  position: fixed;
   bottom: 0;
   width: 100%;
   background-color: #333;
@@ -162,12 +161,32 @@ main{
   margin-bottom: 20px; /* Añadido espacio entre elementos */
 }
 
+button {
+  padding: 8px 15px; /* Padding del botón */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+  background-color: #4CAF50; /* Color de fondo */
+  color: white; /* Color del texto */
+  cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+}
+
 #enlist-now {
   height: 20%;
-  background-image: url( ../models/gui/btn_frame.png);
-  background-size: auto;
+  background-image: url(../models/gui/btn_frame.png);
+  background-size: cover; /* Usar cover para ajustar la imagen al tamaño del botón */
   background-repeat: no-repeat;
   background-position: center;
-  text-align: center; /* Centrar botón */
+  text-align: center;
   width: 50%;
+}
+
+.enlist-now { /* Cambiar a .enlist-now para apuntar al enlace dentro de #enlist-now */
+  display: inline-block; /* Hacer que el enlace sea un bloque en línea */
+  padding: 10px 20px; /* Ajustar el padding para el texto */
+  border: none;
+  border-radius: 5px;
+  background-color: transparent; /* Hacer el fondo transparente para mostrar la imagen */
+  color: white;
+  font-size: 1.2em; /* Ajustar el tamaño del texto */
+  cursor: pointer;
 }

@@ -1,8 +1,8 @@
+//import { auth, database } from "./firebaseConfig.js";
+
 document.addEventListener("DOMContentLoaded", function() {
     // Constante para la dirección del archivo JSON
     const URL_DATOS_TIENDA = "../js/JSON/shopitem.json";
-
-    console.log("URL del archivo de datos:", URL_DATOS_TIENDA);
     
     // Contenedores de mejoras y consumibles
     const listaMejoras = document.getElementById("lista-mejoras");
@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // Función para cargar las mejoras y consumibles desde el archivo JSON
     function cargarDatosTienda() {
-        console.log("Iniciando carga de datos de la tienda...");
+        
         fetch(URL_DATOS_TIENDA)
             .then(response => {
                 if (!response.ok) {
@@ -19,10 +19,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 return response.json();
             })
             .then(data => {
-                console.log("Datos de la tienda cargados exitosamente:", data);
+                
     
                 // Mostrar las mejoras
-                console.log("Mostrando mejoras...");
+                
                 for (const categoria in data.upgrades) {
                     data.upgrades[categoria].forEach(upgrade => {
                         const item = crearItem(upgrade);
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
     
                 // Mostrar los consumibles
-                console.log("Mostrando consumibles...");
+                
                 data.consumables.forEach(consumable => {
                     const item = crearItem(consumable);
                     listaConsumibles.appendChild(item);
@@ -79,17 +79,91 @@ document.addEventListener("DOMContentLoaded", function() {
         return divItem;
     }
 
-    // Función para simular la compra de un elemento
-    function comprarItem(item) {
-        alert("Compraste: " + item.nombre);
-        console.log("Compraste:", item.nombre);
-
-        
-    }
-
     // Cargar los datos de la tienda
     cargarDatosTienda();
 });
 
 
-// si la mejora fue comprada se debera deshabilitar el boton para evitar multiples compras
+
+// Función para actualizar la visualización del carrito
+function actualizarVisualizacionCarrito() {
+    // Obtener el contenedor del carrito
+    const carritoContainer = document.getElementById('carrito');
+
+    // Obtener el carrito del localStorage
+    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+    // Limpiar el contenido actual del contenedor del carrito
+    carritoContainer.innerHTML = '';
+
+    let total = 0; // Inicializar el total de la compra
+
+    // Crear y agregar elementos para cada elemento en el carrito
+    carrito.forEach(item => {
+        const itemElement = document.createElement('div');
+        itemElement.classList.add('carrito-item'); // Agregar clase para aplicar estilos
+        itemElement.innerHTML = `
+            <span class="carrito-nombre">${item.nombre}</span>
+            <span class="carrito-precio">$${item.precio}</span>
+            <span class="carrito-contador">(${item.contador})</span>
+        `;
+        carritoContainer.appendChild(itemElement);
+
+        // Sumar el precio del elemento al total
+        total += item.precio;
+    });
+
+    // Mostrar el total de la compra
+    const totalElement = document.createElement('div');
+    totalElement.textContent = `Total: $${total.toFixed(2)}`; // Formatear el total a dos decimales
+    carritoContainer.appendChild(totalElement);
+
+    // Agregar el botón para finalizar la compra
+    const finalizarCompraBtn = document.createElement('button');
+    finalizarCompraBtn.textContent = 'Finalizar compra';
+    finalizarCompraBtn.addEventListener('click', finalizarCompra);
+    carritoContainer.appendChild(finalizarCompraBtn);
+}
+
+// Función para finalizar la compra
+function finalizarCompra() {
+    // Aquí puedes realizar alguna acción, como enviar la compra a un servidor
+    // o simplemente mostrar un mensaje de confirmación
+    Swal.fire('¡Compra finalizada!', 'Gracias por tu compra', 'success');
+
+    // Después de finalizar la compra, puedes limpiar el carrito si lo deseas
+    localStorage.removeItem('carrito');
+
+    // También puedes actualizar la visualización del carrito
+    actualizarVisualizacionCarrito();
+}
+function comprarItem(item) {
+    // Verificar si ya hay un carrito en el localStorage
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+    // Buscar si el artículo ya está en el carrito
+    const index = carrito.findIndex(i => i.nombre === item.nombre);
+
+    if (index !== -1) {
+        // Si el artículo ya está en el carrito, incrementar el contador y actualizar el precio
+        carrito[index].contador++;
+        carrito[index].precio = carrito[index].precio * carrito[index].contador;
+    } else {
+        // Si el artículo no está en el carrito, agregarlo con contador inicial 1
+        const itemComprado = {
+            nombre: item.nombre,
+            precio: item.precio,
+            contador: 1
+        };
+        carrito.push(itemComprado);
+    }
+
+    // Guardar el carrito actualizado en el localStorage
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+
+    // Mostrar un mensaje de éxito
+    Swal.fire('¡Perfecto!', '¡Agregaste ' + item.nombre + ' al carrito!', 'success');
+
+    // Actualizar la visualización del carrito
+    actualizarVisualizacionCarrito();
+}

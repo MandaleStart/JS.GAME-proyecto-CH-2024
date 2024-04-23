@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -7,6 +7,7 @@
     <title>NoCombatName</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/game.css">
+    <link rel="stylesheet" href="../css/scoretable.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.80.1/phaser.js"></script>
 </head>
@@ -15,38 +16,57 @@
     <nav class="navbar">
         <a href="../index.html" class="navbar-brand">NoCombatName</a>
         <ul class="navbar-nav" id="user-control-list">
+            <li id="user-control"></li>
         </ul>
-
-
     </nav>
-    <div id="secondary-navbar"></div>
     <main>
-        <div class="" id="scoretable">
+        <div id="container">
+            <div id="game-container"></div>
+            <div id="scoretable" class="tabla-puntajes"></div>
         </div>
-        
-        <div class="guia">
-            <div class="jugador" id="jugador1">
-                <div class="titulo">Player 1</div>
-                <div class="tecla">Arriba</div>
-                <div class="tecla">Abajo</div>
-                <div class="tecla">Izquierda</div>
-                <div class="tecla">Derecha</div>
-                <div class="tecla">.</div>
-                
+        <div class="key-guide">
+            <div class="titulo">Guía de teclas</div>
+            <div class="tecla-wrapper">
+                <div class="tecla missile-switch-left">Q</div>
+                <span>Seleccionar misil de la izquierda</span>
             </div>
-            <div class="jugador" id="jugador2">
-                <div class="titulo">Player 2</div>
-                <div class="tecla">W</div>
-                <div class="tecla">A</div>
-                <div class="tecla">S</div>
-                <div class="tecla">D</div>
-                <div class="tecla">Espacio</div>
+            <div class="tecla-wrapper">
+                <div class="tecla up-key">W</div>
+                <span>Mover arriba</span>
+            </div>
+            <div class="tecla-wrapper">
+                <div class="tecla missile-switch-rigth">E</div>
+                <span>Seleccionar misil de la derecha</span>
+            </div>
+            <div class="tecla-wrapper">
+                <div class="tecla left-key">A</div>
+                <span>Mover izquierda</span>
+            </div>
+            <div class="tecla-wrapper">
+                <div class="tecla action-key">Espacio</div>
+                <span>Realizar acción</span>
+            </div>
+            <div class="tecla-wrapper">
+                <div class="tecla rigth-key">D</div>
+                <span>Mover derecha</span>
+            </div>
+            <div class="tecla-wrapper">
+                <div class="tecla boost-key">Shift</div>
+                <span>Activar Ventaja</span>
+            </div>
+            <div class="tecla-wrapper">
+                <div class="tecla down-key">S</div>
+                <span>Mover abajo</span>
+            </div>
+            <div class="tecla-wrapper">
+                <div class="tecla boost-switch-key">Ctrl</div>
+                <span>Cambiar ventaja</span>
             </div>
         </div>
     </main>
     <footer class="footer">
         <div>
-            <h1>Link Utiles</h1>
+            <h1>Links Útiles</h1>
             <div>Foro</div>
             <div>Soporte</div>
             <div>Tienda</div>
@@ -54,10 +74,14 @@
         </div>
         <div> © 2024 Mandalestart.com - Todos los derechos reservados </div>
     </footer>
-
-    <script src="../js/main.js" ></script>
-    <script src="../js/game.js" ></script>
+        <!-- Sweet Alert CDN -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Firebase config con CDN -->
+    <script src="../js/firebaseConfig.js" type="module"></script>
     
+    <script src="../js/main.js" type="module"></script>
+    <script src="../js/scoretable.js"></script>
+    <script src="../js/game.js"  type="module"></script>
 </body>
 
 </html>

@@ -1,74 +1,118 @@
-
-
-h1 {
-    text-align: center;
-    color: #333;
-}
-
-#mejoras, #consumibles {
-    width: 60%;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
-    
-}
-#lista-mejoras, #lista-consumibles {
-    display: flex;
-    flex-wrap: wrap; 
-    justify-content: space-between; 
-}
-
-h2 {
-    color: #555;
-}
-
-
-.item p {
+body {
     margin: 0;
-    color: #666;
+    padding: 0;
+    font-family: Arial, sans-serif;
 }
 
-button {
-    padding: 8px 15px;
-    border: none;
-    border-radius: 5px;
-    background-color: #4CAF50;
-    color: white;
-    cursor: pointer;
+#tienda {
+    display: flex;
+    width: 100%;
 }
 
-button:hover {
-    background-color: #45a049;
+#mejoras,
+#consumibles {
+    width: 50%;
 }
 
-button:active {
-    background-color: #398439;
+#consumibles {
+    margin-left: auto; /* Mover el contenedor de consumibles hacia la derecha */
+}
+
+#carrito {
+    width: 20%;
+    margin-top: 10%;
+    margin-left: 2px; /* Mover el carrito hacia la derecha */
+}
+
+/* Estilos para los elementos dentro de la tienda */
+#mejoras,
+#consumibles,
+#carrito {
+    padding: 20px; /* Espacio interno */
+    background-color: #f0f0f0; /* Color de fondo */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+/* Estilos para los títulos de las secciones */
+h1, h2 {
+    text-align: center; /* Centrar el texto */
+}
+
+/* Estilos para los elementos de la lista de mejoras y consumibles */
+#lista-mejoras,
+#lista-consumibles,
+#list-cart {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .item {
-    display: flex; 
-    align-items: center;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    flex-basis: calc(50% - 10px);
-}
-
-.item h3 {
-    margin-top: 0;
-    margin-bottom: 10px;
-    color: #333;
-    flex: 1; 
+    width: calc(50% - 5px); /* Espacio entre los elementos */
+    margin-bottom: 10px; /* Espacio entre los elementos */
+    background-color: #fff; /* Color de fondo */
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra */
+    padding: 10px; /* Espacio interno */
 }
 
 .item img {
-    width: 100px;
-    height: 100px;
-    margin-right: 10px; 
-    
+    width: 100px; /* Ancho de la imagen */
+    height: 100px; /* Altura de la imagen */
+    margin-right: 10px; /* Espacio a la derecha de la imagen */
+}
+
+.item h3 {
+    margin-top: 0; /* Eliminar el margen superior */
+    margin-bottom: 5px; /* Espacio inferior */
+}
+
+.item p {
+    margin: 0; /* Eliminar los márgenes */
+}
+
+button {
+    padding: 8px 15px; /* Padding del botón */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #4CAF50; /* Color de fondo */
+    color: white; /* Color del texto */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+}
+
+button:hover {
+    background-color: #45a049; /* Color de fondo al pasar sobre el botón */
+}
+
+button:active {
+    background-color: #398439; /* Color de fondo al hacer clic en el botón */
+}
+
+/* Estilos para el pie de página */
+.footer {
+    position: relative;
+    margin-top: 50px; /* Espacio superior */
+    background-color: #333; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    padding: 20px; /* Espacio interno */
+    text-align: center; /* Centrar el texto */
+}
+
+.footer div {
+    margin-bottom: 10px; /* Espacio inferior entre los elementos */
+}
+
+/* Estilos para los elementos del carrito */
+.carrito-item {
+    border-bottom: 1px solid #ccc; /* Agregar borde inferior entre elementos del carrito */
+    padding-bottom: 10px; /* Espacio inferior entre elementos */
+}
+
+#carrito {
+    background-color: #f9f9f9; /* Cambiar el color de fondo del carrito */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra */
+    padding: 20px; /* Espacio interno */
+    margin-left: auto; /* Mover el carrito hacia la derecha */
+    width: 20%;
 }
