@@ -1,0 +1,45 @@
+{
+    "play": {
+      "ENG": "PLAY",
+      "ESP": "JUGAR",
+      "AL": "SPIELEN",
+      "FRA": "JOUER"
+    },
+    "settings": {
+      "ENG": "SETTINGS",
+      "ESP": "CONFIGURAR",
+      "AL": "EINRICHTEN",
+      "FRA": "CONFIGURER"
+    },
+    "sound": {
+      "ENG": "SOUND",
+      "ESP": "SONIDO",
+      "AL": "SOUND",
+      "FRA": "SON"
+    },
+    "language": {
+      "ENG": "LANGUAGE",
+      "ESP": "IDIOMA",
+      "AL": "SPRACHE",
+      "FRA": "LANGUE"
+    },
+    "keys_binding": {
+      "ENG": "KEYS BINDING",
+      "ESP": "ASIGNAR TECLAS",
+      "AL": "TASTEN",
+      "FRA": "TOUCHES"
+    },
+    "tutorial": {
+      "ENG": "TUTORIAL",
+      "ESP": "TUTORIAL",
+      "AL": "TUTORIAL",
+      "FRA": "TUTORIEL"
+    },
+    "survival": {
+      "ENG": "SURVIVAL",
+      "ESP": "SUPERVIVENCIA",
+      "AL": "ÜBERLEBEN",
+      "FRA": "SURVIE"
+    }
+  }
+  

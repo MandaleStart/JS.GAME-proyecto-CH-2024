@@ -1,62 +1,84 @@
-import { musicDirectory, musicList, loadGlobalMusic } from '../../js/game.js'; // Ajusta la ruta de la importación según tu estructura de archivos
-
-class MainMenuScene extends Phaser.Scene {
+import translations from './translate.json';
+export class MainMenuScene extends Phaser.Scene {
     constructor() {
         super({ key: 'MainMenuScene' });
     }
 
     create() {
-        // Obtén el centro horizontal y vertical de la pantalla
-        const centerX = this.cameras.main.width * 0.3; // 70% de la pantalla
-        const centerY = this.cameras.main.height / 2;
+        // Cargar la configuración de idioma desde el localStorage o establecer un idioma predeterminado
+        let language = localStorage.getItem('language') || 'ESP';
+        let storedTranslations = JSON.parse(localStorage.getItem('translations'));
 
-        // Crear botón "TUTORIAL"
-        const tutorialButton = this.add.text(centerX, centerY - 50, 'TUTORIAL', { fill: '#ffffff', fontSize: '32px' }).setOrigin(0.5);
-        tutorialButton.setInteractive(); // Hacer el botón interactivo
+        // Verificar si hay traducciones guardadas en el localStorage, de lo contrario, cargarlas desde el archivo translate.json
+        let translationsToUse = storedTranslations ? storedTranslations : translations;
 
-        // Crear botón "JUGAR"
-        const playButton = this.add.text(centerX, centerY, 'JUGAR', { fill: '#ffffff', fontSize: '32px' }).setOrigin(0.5);
-        playButton.setInteractive(); // Hacer el botón interactivo
+        // Guardar las traducciones en el localStorage
+        localStorage.setItem('translations', JSON.stringify(translationsToUse));
 
-        // Crear botón "CONFIGURACIÓN"
-        const settingsButton = this.add.text(centerX, centerY + 50, 'CONFIGURACIÓN', { fill: '#ffffff', fontSize: '32px' }).setOrigin(0.5);
-        settingsButton.setInteractive(); // Hacer el botón interactivo
-
-        // Definir acciones al hacer clic en los botones
-        tutorialButton.on('pointerdown', () => {
-            this.scene.start('TutorialScene');
-        });
-
-        playButton.on('pointerdown', () => {
-            this.scene.start('GameScene');
-            // Lógica para ir a la escena de juego
-        });
-
-        settingsButton.on('pointerdown', () => { // Cambiar a la escena de configuraciones
-            this.scene.start('SettingsScene');
-        });
-
-        // Reproducir música en cadena
-        this.playMusicInSequence();
+        // Agregar las opciones de menú principal
+        this.agregarOpcionMenu(100, 100, translationsToUse['play'][language], 'PlayScene');
+        this.agregarOpcionMenu(100, 200, translationsToUse['settings'][language], 'ConfigScene');
     }
 
-    // Método para reproducir música en cadena
-    playMusicInSequence() {
-        let currentIndex = 0;
-
-        const playNextMusic = () => {
-            const music = this.sound.add(musicDirectory + musicList[currentIndex]);
-            music.play();
-
-            music.once('complete', () => {
-                music.destroy(); 
-                currentIndex = (currentIndex + 1) % musicList.length; 
-                playNextMusic();
+    agregarOpcionMenu(x, y, texto, escena) {
+        return this.add.text(x, y, texto, { fontSize: '32px', fill: '#fff' })
+            .setInteractive()
+            .on('pointerdown', () => {
+                // Iniciar la escena correspondiente al hacer clic en la opción del menú
+                this.scene.start(escena);
             });
-        };
-
-        playNextMusic(); 
     }
 }
 
-export default MainMenuScene;
+// Submenú para la opción "JUGAR"
+export class PlayScene extends Phaser.Scene {
+    constructor() {
+        super({ key: 'PlayScene' });
+    }
+
+    create() {
+        // Cargar la configuración de idioma desde el localStorage o establecer un idioma predeterminado
+        let language = localStorage.getItem('language') || 'ESP';
+        let translations = JSON.parse(localStorage.getItem('translations'));
+
+        // Agregar las opciones de submenú para "JUGAR"
+        this.agregarOpcionSubMenu(100, 100, translations['tutorial'][language], 'TutorialScene');
+        this.agregarOpcionSubMenu(100, 200, translations['survival'][language], 'SurvivalScene');
+    }
+
+    agregarOpcionSubMenu(x, y, texto, escena) {
+        return this.add.text(x, y, texto, { fontSize: '24px', fill: '#fff' })
+            .setInteractive()
+            .on('pointerdown', () => {
+                // Iniciar la escena correspondiente al hacer clic en la opción del submenú
+                this.scene.start(escena);
+            });
+    }
+}
+
+// Submenú para la opción "CONFIGURAR"
+export class ConfigScene extends Phaser.Scene {
+    constructor() {
+        super({ key: 'ConfigScene' });
+    }
+
+    create() {
+        // Cargar la configuración de idioma desde el localStorage o establecer un idioma predeterminado
+        let language = localStorage.getItem('language') || 'ESP';
+        let translations = JSON.parse(localStorage.getItem('translations'));
+
+        // Agregar las opciones de submenú para "CONFIGURAR"
+        this.agregarOpcionSubMenu(100, 100, translations['sound'][language], 'SoundScene');
+        this.agregarOpcionSubMenu(100, 200, translations['language'][language], 'LanguageScene');
+        this.agregarOpcionSubMenu(100, 300, translations['keys_binding'][language], 'KeysScene');
+    }
+
+    agregarOpcionSubMenu(x, y, texto, escena) {
+        return this.add.text(x, y, texto, { fontSize: '24px', fill: '#fff' })
+            .setInteractive()
+            .on('pointerdown', () => {
+                // Iniciar la escena correspondiente al hacer clic en la opción del submenú
+                this.scene.start(escena);
+            });
+    }
+}

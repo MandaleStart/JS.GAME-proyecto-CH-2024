@@ -68,3 +68,25 @@
     margin-top: 5%;
   };
   
+
+
+  .perfil-usuario {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.perfil-usuario h2 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.perfil-usuario p {
+    margin: 5px 0;
+}
+
+.fecha-creacion {
+    font-style: italic;
+}

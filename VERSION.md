@@ -1,4 +1,8 @@
 Historial de Versiones:
+V0.3.3
+- Se agrega community para mostrar perfiles de otros jugadores con su usuario imagen y mail ( sujeto a cambios)
+- Se corrige funcion de signin y funcion de signout
+- Se modifica CSS para un estilo mas parejo 
 V0.3.2
 - Se integra sweetalert al proyectp
 - Se corrige algunos fallos en la pagina de inicio de sesion 8 registro

@@ -55,7 +55,7 @@ a:hover {
   text-decoration: underline;
 }
 
-/* [ Estilo de pagina ] */
+/* Estilo de página */
 .navbar {
   position: fixed;
   top: 0;
@@ -99,9 +99,11 @@ a:hover {
   color: white;
   text-align: center;
 }
-main{
+
+main {
   width: 100%;
 }
+
 #secondary-navbar {
   background-color: #f0f0f0;
   padding: 10px;
@@ -127,7 +129,7 @@ main{
   font-weight: bold;
 }
 
-#main-enlist{
+#main-enlist {
   background-color: darkblue;
 }
 
@@ -138,55 +140,118 @@ main{
   background-position: center;
   width: 50%;
   height: 80vh;
-  margin: 2% auto; /* Cambiado para centrar verticalmente y horizontalmente */
-  padding: 22px; /* Añadido para espacio interior */
+  margin: 2% auto; /* Centrar vertical y horizontalmente */
+  padding: 22px; /* Espacio interior */
   display: flex;
   flex-direction: column; /* Alinear elementos verticalmente */
   justify-content: center;
   align-items: center;
 }
 
-#enlist-tittle {
+#enlist-tittle,
+#enlist-text {
   height: 20%;
   color: #ccc;
-  margin-bottom: 20px; /* Añadido espacio entre elementos */
+  margin-bottom: 20px; /* Espacio entre elementos */
   text-align: center; /* Centrar texto */
 }
 
-#enlist-text {
-  height: 50%;
-  color: #ccc;
-  font-size: 1.2em;
-  text-align: center; /* Centrar texto */
-  margin-bottom: 20px; /* Añadido espacio entre elementos */
-}
-
-button {
+button,
+.enlist-now {
   padding: 8px 15px; /* Padding del botón */
   border: none; /* Sin borde */
   border-radius: 5px; /* Bordes redondeados */
-  background-color: #4CAF50; /* Color de fondo */
   color: white; /* Color del texto */
   cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
 }
 
+button {
+  background-color: #4CAF50; /* Color de fondo */
+}
+
 #enlist-now {
-  height: 20%;
   background-image: url(../models/gui/btn_frame.png);
-  background-size: cover; /* Usar cover para ajustar la imagen al tamaño del botón */
+  background-size: cover; /* Ajustar imagen al tamaño del botón */
   background-repeat: no-repeat;
   background-position: center;
   text-align: center;
   width: 50%;
 }
 
-.enlist-now { /* Cambiar a .enlist-now para apuntar al enlace dentro de #enlist-now */
-  display: inline-block; /* Hacer que el enlace sea un bloque en línea */
-  padding: 10px 20px; /* Ajustar el padding para el texto */
-  border: none;
-  border-radius: 5px;
-  background-color: transparent; /* Hacer el fondo transparente para mostrar la imagen */
-  color: white;
-  font-size: 1.2em; /* Ajustar el tamaño del texto */
-  cursor: pointer;
+.enlist-now {
+  display: inline-block; /* Hacer enlace un bloque en línea */
+  padding: 10px 20px; /* Ajustar padding para texto */
+  background-color: transparent; /* Fondo transparente para imagen */
+  font-size: 1.2em; /* Tamaño de texto */
+}
+
+/* Estilos para las tarjetas de perfil de usuario */
+.perfil-usuario {
+  border: 1px solid #ddd; /* Borde */
+  border-radius: 5px; /* Borde redondeado */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+  margin: 10px; /* Espacio entre tarjetas */
+  width: calc(25% - 20px); /* Ancho del 25% con margen incluido */
+  float: left; /* Alinear a la izquierda */
+  box-sizing: border-box; /* Incluir borde y padding en ancho */
+  height: 200px; /* Altura fija */
+  overflow: hidden; /* Ocultar contenido si es más grande */
+  background-color: #fff; /* Fondo blanco */
+  margin-left: 1cm; /* Margen izquierdo */
+  margin-right: 1cm; /* Margen derecho */
+}
+
+/* Estilos para el contenido dentro de las tarjetas */
+.perfil-usuario h2 {
+  font-size: 18px; /* Tamaño de fuente */
+  margin: 10px; /* Espacio interno */
+}
+
+.perfil-usuario p {
+  margin: 5px 10px; /* Espacio interno */
+}
+
+.fecha-creacion {
+  font-style: italic; /* Texto en cursiva */
+}
+
+/* Estilos para el campo de búsqueda de usuario */
+#userSearch {
+  width: 100%; /* Ancho completo */
+  padding: 10px; /* Espaciado interno */
+  font-size: 16px; /* Tamaño de fuente */
+  border: 1px solid #ddd; /* Borde */
+  border-radius: 5px; /* Borde redondeado */
+  margin-bottom: 20px; /* Espacio inferior */
+  margin-top: 10px; /* Espacio superior */
+  box-sizing: border-box; /* Incluir borde en ancho */
+}
+
+/* Estilos para el texto de marcador de posición */
+#userSearch::placeholder {
+  color: #999; /* Color del texto de marcador de posición */
+}
+
+/* Estilos cuando el campo de búsqueda está enfocado */
+#userSearch:focus {
+  border-color: #007bff; /* Cambio de color de borde */
+  outline: none; /* Eliminar contorno */
+}
+
+/* Estilos para el main de comunidad*/
+#main-community {
+  margin-top: 100px; /* Margen superior */
+  padding: 0 1cm; /* Espacio a los lados */
+  overflow: auto; /* Permitir desplazamiento */
+
+  /* Nueva regla para establecer una altura mínima */
+  min-height: calc(100vh - 100px - 100px); /* 100vh - altura navbar - altura footer */
+}
+
+.img-profile {
+  width: 100px; /* Ajustar el ancho según sea necesario */
+  height: 100px; /* Ajustar la altura según sea necesario */
+  border-radius: 50%; /* Hacer la imagen circular */
+  object-fit: cover; /* Ajustar la imagen al tamaño del contenedor manteniendo la proporción */
+  margin-right: 10px; /* Añadir margen derecho para separar la imagen del texto */
 }

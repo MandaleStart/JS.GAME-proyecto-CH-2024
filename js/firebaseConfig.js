@@ -2,7 +2,7 @@
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
 import { getDatabase } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
-
+import { getStorage } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-storage.js";
 const firebaseConfig = {
   apiKey: "AIzaSyCIohCcLbD_gnodGUqkd0cXeveqPQGDt40",
   authDomain: "nocombatname-1aa34.firebaseapp.com",
@@ -15,6 +15,7 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);
 const auth = getAuth(firebaseApp);
 const database = getDatabase(firebaseApp);
+const storage = getStorage(firebaseApp); 
 
-export { auth, database };
+export { auth, database , storage };
 

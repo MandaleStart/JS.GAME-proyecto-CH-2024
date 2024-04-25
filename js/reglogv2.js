@@ -166,7 +166,6 @@ async function signIn() {
 
 
 //resetear password en firebase
-
 const btnResetPass = document.getElementById('btn-reset-pass');
 
 btnResetPass.addEventListener('click', async function () {
@@ -181,26 +180,26 @@ btnResetPass.addEventListener('click', async function () {
         Swal.fire('Error', 'Error al enviar el correo electrónico para restablecer la contraseña.');
     }
 });
-// ocultar/mostrar password
+// ocultar/ mostrar password en registro 
 const togglePasswordReg = document.getElementById('toggle-password-reg');
 const toggleConfirmPassword = document.getElementById('toggle-confirm-password');
-const toggleLoginPassword = document.getElementById('toggle-login-password');
-
-const passwordInputReg = document.getElementById('password-reg');
-const passwordInputLogin = document.getElementById('password-login');
-const confirmPasswordInput = document.getElementById('confirm-password-reg');
 
 togglePasswordReg.addEventListener('click', function () {
     const type = passwordInputReg.getAttribute('type') === 'password' ? 'text' : 'password';
     passwordInputReg.setAttribute('type', type);
     this.querySelector('i').classList.toggle('fa-eye-slash');
 });
+const passwordInputReg = document.getElementById('password-reg');
+const confirmPasswordInput = document.getElementById('confirm-password-reg');
 
 toggleConfirmPassword.addEventListener('click', function () {
     const type = confirmPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
     confirmPasswordInput.setAttribute('type', type);
     this.querySelector('i').classList.toggle('fa-eye-slash');
 });
+// ocultar/ mostrar password en login 
+const passwordInputLogin = document.getElementById('password-login');
+const toggleLoginPassword = document.getElementById('toggle-login-password');
 
 toggleLoginPassword.addEventListener('click', function () {
     const type = passwordInputLogin.getAttribute('type') === 'password' ? 'text' : 'password';
