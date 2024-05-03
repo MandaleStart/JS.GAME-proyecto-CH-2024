@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     userControlList.appendChild(createSelectIdioma());
 });
 
+// Crea un item con la clase navitem para el navbar
 function createNavItem(texto, href) {
     const navItem = document.createElement("li");
     navItem.className = "nav-item";
@@ -54,7 +55,9 @@ function createNavItem(texto, href) {
     navItem.appendChild(navLink);
     return navItem;
 }
-
+/* crea el selector de idioma  en el navbar
+    aun no implementada su funcionalidad
+*/
 function createSelectIdioma() {
     const selectIdioma = document.createElement("select");
     selectIdioma.id = "idioma";
@@ -71,31 +74,28 @@ function createSelectIdioma() {
     navItem.appendChild(selectIdioma);
     return navItem;
 }
-
+// crear un boton en el navbar 
 function createButton(texto, callback) {
     const boton = document.createElement("button");
     boton.textContent = texto;
     boton.addEventListener("click", callback);
     return boton;
 }
-
+// crear un link  en navbar
 function createLink(texto, href) {
     const link = document.createElement("a");
     link.textContent = texto;
     link.href = href;
     return link;
 }
-
+//cerrar sesion
 function closeSession() {
     auth.signOut().then(function() {
         localStorage.removeItem("userLogged");
         window.location.href = "/views/reg-log.html";
     }).catch(function(error) {
-        // Manejo de errores si es necesario
+        // Manejo de errores 
         console.error("Error al cerrar sesión:", error);
     });
 }
 
-function milisegundosAMinutos(ms) {
-    return Math.floor(ms / 60000); // 1 minuto = 60000 milisegundos
-}

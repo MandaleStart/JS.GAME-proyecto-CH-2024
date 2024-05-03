@@ -13,7 +13,7 @@ btnSendReg.addEventListener('click', async function () {
     const gameNotify = document.getElementById('notify-reg').checked;
     const gameTyc = document.getElementById('tyc-reg').checked;
     const emailRegex = /^\S+@\S+\.\S+$/;
-
+    //validaciones
     if (!emailRegex.test(mail)) {
         Swal.fire('Error', 'Por favor ingrese una dirección de correo electrónico válida', 'error');
         return;
@@ -108,7 +108,7 @@ const btnSendLogin = document.getElementById('btn-send-login');
 btnSendLogin.addEventListener('click', 
     signIn);
 
-
+// Funcion de login 
 async function signIn() {
     const userLogin = document.getElementById('user-login').value;
     const passwordLogin = document.getElementById('password-login').value;
@@ -165,7 +165,7 @@ async function signIn() {
 }
 
 
-//resetear password en firebase
+// Resetear password en firebase
 const btnResetPass = document.getElementById('btn-reset-pass');
 
 btnResetPass.addEventListener('click', async function () {
@@ -180,6 +180,7 @@ btnResetPass.addEventListener('click', async function () {
         Swal.fire('Error', 'Error al enviar el correo electrónico para restablecer la contraseña.');
     }
 });
+
 // ocultar/ mostrar password en registro 
 const togglePasswordReg = document.getElementById('toggle-password-reg');
 const toggleConfirmPassword = document.getElementById('toggle-confirm-password');
@@ -197,6 +198,7 @@ toggleConfirmPassword.addEventListener('click', function () {
     confirmPasswordInput.setAttribute('type', type);
     this.querySelector('i').classList.toggle('fa-eye-slash');
 });
+
 // ocultar/ mostrar password en login 
 const passwordInputLogin = document.getElementById('password-login');
 const toggleLoginPassword = document.getElementById('toggle-login-password');

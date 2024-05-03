@@ -1,5 +1,9 @@
+// Archivo principal del juego 
+
+// importar Escenas
 import { MainMenuScene , PlayScene , ConfigScene } from '/game/js/menu.js';
 
+//Configuracion
 const config = {
     type: Phaser.AUTO,
     width: 1200,
@@ -14,4 +18,6 @@ const config = {
         }
     }
 };
+
+//Ejecuta
 const game = new Phaser.Game(config);

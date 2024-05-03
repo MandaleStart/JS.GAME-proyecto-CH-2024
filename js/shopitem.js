@@ -42,6 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
             });
     }
 
+    // Crea un item con estructura de tarjeta 
     function crearItem(item) {
         const divItem = document.createElement("div");
         divItem.classList.add("item");
